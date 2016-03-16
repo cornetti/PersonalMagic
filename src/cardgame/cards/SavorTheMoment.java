@@ -10,8 +10,8 @@ import cardgame.Player;
  */
 public class SavorTheMoment implements Card {
 
-    private class CancelEffect extends AbstractCardEffect {
-        public CancelEffect(Player p, Card c){
+    private class SavorTheMomentEffect extends AbstractCardEffect {
+        public SavorTheMomentEffect(Player p, Card c){
             super(p,c);
         }
 
@@ -23,22 +23,22 @@ public class SavorTheMoment implements Card {
 
     @Override
     public Effect get_effect(Player owner) {
-        return null;
+        return new SavorTheMomentEffect(owner,this);
     }
 
     @Override
     public String name() {
-        return null;
+        return "Savor the Moment";
     }
 
     @Override
     public String type() {
-        return null;
+        return "Sorcery";
     }
 
     @Override
     public String rule_text() {
-        return null;
+        return "Take an extra turn after this one. Skip the untap step of that turn";
     }
 
     @Override

@@ -17,7 +17,6 @@ public class BronzeSable implements Card {
 
         @Override
         public void resolve() {
-
         }
     }
 

@@ -10,8 +10,8 @@ import cardgame.Player;
  */
 public class BenevolentAncestor implements Card {
 
-    private class CancelEffect extends AbstractCardEffect {
-        public CancelEffect(Player p, Card c){
+    private class BenevolentAncestorEffect extends AbstractCardEffect {
+        public BenevolentAncestorEffect(Player p, Card c){
             super(p,c);
         }
 
@@ -23,22 +23,22 @@ public class BenevolentAncestor implements Card {
 
     @Override
     public Effect get_effect(Player owner) {
-        return null;
+        return new BenevolentAncestorEffect(owner,this);
     }
 
     @Override
     public String name() {
-        return null;
+        return "Benevolent Ancestor";
     }
 
     @Override
     public String type() {
-        return null;
+        return "Creature";
     }
 
     @Override
     public String rule_text() {
-        return null;
+        return "Prevent the next 1 damage that would be dealt to target creature or player this turn";
     }
 
     @Override

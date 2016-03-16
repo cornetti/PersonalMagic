@@ -10,7 +10,9 @@ public class Homeopathy implements Card{
     
     private class HomeopathyEffect extends AbstractCardEffect {
         public HomeopathyEffect(Player p, Card c) { super(p,c); }
-        public void resolve() {}
+        public void resolve() {
+
+        }
     }
 
     public Effect get_effect(Player owner) { 

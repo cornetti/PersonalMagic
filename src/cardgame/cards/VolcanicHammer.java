@@ -10,8 +10,8 @@ import cardgame.Player;
  */
 public class VolcanicHammer implements Card {
 
-    private class CancelEffect extends AbstractCardEffect {
-        public CancelEffect(Player p, Card c){
+    private class VolcanicHammerEffect extends AbstractCardEffect {
+        public VolcanicHammerEffect(Player p, Card c){
             super(p,c);
         }
 
@@ -23,22 +23,22 @@ public class VolcanicHammer implements Card {
 
     @Override
     public Effect get_effect(Player owner) {
-        return null;
+        return new VolcanicHammerEffect(owner,this);
     }
 
     @Override
     public String name() {
-        return null;
+        return "Volcanic hammer";
     }
 
     @Override
     public String type() {
-        return null;
+        return "Sorcery";
     }
 
     @Override
     public String rule_text() {
-        return null;
+        return "Volcanic Hammer deals 3 damage to any one creature or player";
     }
 
     @Override

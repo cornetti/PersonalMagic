@@ -13,3 +13,4 @@ public abstract class AbstractCreatureCardEffect extends AbstractCardEffect {
     }
     
 }
+// Commentoh

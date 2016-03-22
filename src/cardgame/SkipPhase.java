@@ -13,8 +13,7 @@ public class SkipPhase implements Phase {
         phase_id=id;
         skip_num=skip;
     }
-    
-    
+
     public void execute() {
         Player current_player = CardGame.instance.get_current_player();
         System.out.println(current_player.get_name() + ": skip " + phase_id.get_name() +" phase");

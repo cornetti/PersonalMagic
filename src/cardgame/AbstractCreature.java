@@ -1,7 +1,7 @@
 package cardgame;
 
-// utility clas implementing common defaul behavior and fields for creatures
-// creatures with differenf behavior from the default nee not extend it
+// utility class implementing common default behavior and fields for creatures
+// creatures with different behavior from the default need not extend it
 public abstract class AbstractCreature implements Creature {
     protected Player owner;
     protected boolean is_tapped=false;

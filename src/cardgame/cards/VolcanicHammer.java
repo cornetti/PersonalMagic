@@ -38,7 +38,7 @@ public class VolcanicHammer implements Card {
 
     @Override
     public String rule_text() {
-        return "Volcanic Hammer deals 3 damage to any one creature or player";
+        return "Volcanic Hammer deals 3 damage to anyone creature or player";
     }
 
     @Override

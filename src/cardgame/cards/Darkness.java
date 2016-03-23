@@ -17,7 +17,7 @@ public class Darkness implements Card {
 
         @Override
         public void resolve() {
-
+            /*lel*/
         }
     }
 

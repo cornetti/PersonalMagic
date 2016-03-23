@@ -1,4 +1,4 @@
-package cardgame.cards;
+package cardgame;
 
 public class Attack {
     private int dmg;

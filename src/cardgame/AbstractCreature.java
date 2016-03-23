@@ -1,7 +1,5 @@
 package cardgame;
 
-import cardgame.cards.Attack;
-
 import java.util.ArrayList;
 
 // utility clas implementing common defaul behavior and fields for creatures

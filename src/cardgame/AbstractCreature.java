@@ -1,13 +1,18 @@
 package cardgame;
 
-// utility class implementing common default behavior and fields for creatures
-// creatures with different behavior from the default need not extend it
+import cardgame.cards.Attack;
+
+import java.util.ArrayList;
+
+// utility clas implementing common defaul behavior and fields for creatures
+// creatures with differenf behavior from the default nee not extend it
 public abstract class AbstractCreature implements Creature {
     protected Player owner;
     protected boolean is_tapped=false;
     protected int damage_left = get_toughness();
-        
-        protected AbstractCreature(Player owner) { this.owner=owner; }
+    protected ArrayList<Attack> attackList;
+
+    protected AbstractCreature(Player owner) { this.owner=owner; }
         
         public boolean tap() { 
             if (is_tapped) {
@@ -32,8 +37,22 @@ public abstract class AbstractCreature implements Creature {
         }
         
         public boolean isTapped() { return is_tapped; }
-        public void attack() {} // to do in assignment 2
+        public void attack(Creature c, int attack) {
+            Attack dmg = new Attack(attack);
+            attackList.add(dmg);
+            c.receive(dmg);
+        } // to do in assignment 2
         public void defend(Creature c) {} // to do in assignment 2
+
+        public void receive(Attack atk){
+            attackList.add(atk);
+        }
+
+        public void calculate_damage(){
+            for(Attack a: attackList)
+                inflict_damage(a.getDmg());
+        }
+
         public void inflict_damage(int dmg) { 
             damage_left -= dmg; 
             if (damage_left<=0)

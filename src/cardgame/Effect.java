@@ -1,6 +1,6 @@
 package cardgame;
 
-public interface Effect {
+public interface Effect extends Target{
     
     // pays for effect and places it in the stack
     boolean play();

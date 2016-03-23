@@ -1,9 +1,6 @@
 package cardgame.cards;
 
-import cardgame.AbstractCardEffect;
-import cardgame.Card;
-import cardgame.Effect;
-import cardgame.Player;
+import cardgame.*;
 
 /**
  * Created by Kotono on 16/03/2016.
@@ -17,7 +14,7 @@ public class FalsePeace implements Card {
 
         @Override
         public void resolve() {
-
+          opponent.set_phase(Phases.COMBAT,new SkipPhase(Phases.COMBAT));
         }
     }
 

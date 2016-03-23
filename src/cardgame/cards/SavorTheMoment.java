@@ -1,9 +1,6 @@
 package cardgame.cards;
 
-import cardgame.AbstractCardEffect;
-import cardgame.Card;
-import cardgame.Effect;
-import cardgame.Player;
+import cardgame.*;
 
 /**
  * Created by Kotono on 16/03/2016.
@@ -17,7 +14,10 @@ public class SavorTheMoment implements Card {
 
         @Override
         public void resolve() {
-
+            owner.set_phase(Phases.DRAW, new DefaultDrawPhase());
+            owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
+            owner.set_phase(Phases.MAIN, new DefaultMainPhase());
+            owner.set_phase(Phases.END, new DefaultEndPhase());
         }
     }
 

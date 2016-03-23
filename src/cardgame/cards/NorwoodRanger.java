@@ -1,18 +1,20 @@
 package cardgame.cards;
 
-import cardgame.AbstractCardEffect;
-import cardgame.Card;
-import cardgame.Effect;
-import cardgame.Player;
+import cardgame.*;
 
 /**
  * Created by Kotono on 16/03/2016.
  */
 public class NorwoodRanger implements Card {
 
-    private class NorwoodRangerEffect extends AbstractCardEffect {
+    private class NorwoodRangerEffect extends AbstractCreatureCardEffect {
         public NorwoodRangerEffect(Player p, Card c){
             super(p,c);
+        }
+
+        @Override
+        protected Creature create_creature() {
+            return null;
         }
 
         @Override

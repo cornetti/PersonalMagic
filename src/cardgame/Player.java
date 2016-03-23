@@ -51,9 +51,7 @@ public class Player {
             
             
     // player looses. might need strategy/decorator
-    public void lose(String s) { throw new EndOfGame(name + " lost the game: "+ s); }            
-            
-    
+    public void lose(String s) { throw new EndOfGame(name + " lost the game: "+ s); }
     
     
     

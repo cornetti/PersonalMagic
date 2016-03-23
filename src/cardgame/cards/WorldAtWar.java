@@ -1,9 +1,6 @@
 package cardgame.cards;
 
-import cardgame.AbstractCardEffect;
-import cardgame.Card;
-import cardgame.Effect;
-import cardgame.Player;
+import cardgame.*;
 
 /**
  * Created by Kotono on 16/03/2016.
@@ -17,7 +14,8 @@ public class WorldAtWar implements Card {
 
         @Override
         public void resolve() {
-
+            owner.set_phase(Phases.UNTAP, new DefaultUntapPhase());
+            owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
         }
     }
 

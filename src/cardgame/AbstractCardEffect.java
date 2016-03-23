@@ -15,6 +15,7 @@ public abstract class AbstractCardEffect extends AbstractEffect {
         owner=p;
         card=c;
         opponent = CardGame.instance.get_current_adversary();
+
     }
     
     public boolean play() { 

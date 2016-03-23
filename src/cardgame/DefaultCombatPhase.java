@@ -12,6 +12,6 @@ public class DefaultCombatPhase implements Phase {
         CardGame.instance.get_triggers().trigger(Phases.COMBAT_FILTER);
         // TODO combat
     }
-        void declareAttackers(){}
+        //void declareAttackers(){}
     
 }

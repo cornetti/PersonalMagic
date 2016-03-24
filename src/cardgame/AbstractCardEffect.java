@@ -1,7 +1,8 @@
 
 package cardgame;
 
-import java.lang.annotation.Target;
+
+import java.util.ArrayList;
 
 // utility class implementing code common to all effects linked with cards:
 // remove card from hand and place the effect on the stack on play
@@ -15,12 +16,11 @@ public abstract class AbstractCardEffect extends AbstractEffect {
         owner=p;
         card=c;
         opponent = CardGame.instance.get_current_adversary();
-
     }
     
-    public boolean play() { 
+    public boolean play(ArrayList<? extends Target> targets) {
         owner.get_hand().remove(card);
-        return super.play();
+        return super.play(targets);
     }
     
     public String toString() { return card.toString(); }

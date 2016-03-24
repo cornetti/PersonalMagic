@@ -56,7 +56,12 @@ public abstract class AbstractCreature implements Creature {
             if (damage_left<=0)
                 owner.destroy(this);        
         }
-        
-        public void reset_damage() { damage_left = get_toughness(); }
+
+    @Override
+    public void weaken(int dmg) {
+
+    }
+
+    public void reset_damage() { damage_left = get_toughness(); }
     
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 public class DefaultMainPhase implements Phase {
-
+    ArrayList<Target> targets = null; /*dummy*/
     
     public void execute() {
         Player current_player = CardGame.instance.get_current_player();
@@ -66,8 +66,8 @@ public class DefaultMainPhase implements Phase {
         //get user choice and play it
         int idx= reader.nextInt()-1;
         if (idx<0 || idx>=available_effects.size()) return false;
-
-        available_effects.get(idx).play();
+        //il giocatore deve poter scegliere anche i target
+        available_effects.get(idx).play(targets);
         return true;
     }
     

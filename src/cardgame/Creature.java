@@ -11,6 +11,7 @@ public interface Creature extends Target{
     void attack();
     void defend(Creature c);
     void inflict_damage(int dmg);
+    void weaken(int dmg);
     void reset_damage();
     int get_power();
     int get_toughness();
@@ -21,4 +22,6 @@ public interface Creature extends Target{
     // returns only the effects that can be played currently
     // depending on state, e.g., tapped/untapped
     List<Effect> avaliable_effects();
+
+    void receive(Attack dmg);
 }

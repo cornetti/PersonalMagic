@@ -15,15 +15,45 @@ public class BronzeSable implements Card {
             super(p,c);
         }
 
-        @Override
-        public void resolve() {
-        }
+        protected Creature create_creature() { return new BronzeSableCreature(owner); }
     }
 
     @Override
     public Effect get_effect(Player owner) {
         return new BronzeSableEffect(owner,this);
     }
+
+    private class BronzeSableCreature extends AbstractCreature {
+        ArrayList<Effect> all_effects= new ArrayList<>();
+        ArrayList<Effect> tap_effects= new ArrayList<>();
+
+        BronzeSableCreature(Player owner) { /*Costruttore*/
+            super(owner);
+            all_effects.add( new Effect() {
+                                 public boolean play(ArrayList<? extends Target> targets) {
+                                     CardGame.instance.get_stack().add(this);
+                                     return tap();
+                                 }
+
+                                 public void resolve() {}
+
+                                 public String toString()
+                                 { return "Bronze Sable"; } /*commento dummy*/
+                             }
+            );
+        }
+
+        public String name() { return "Bronze Sable"; }
+
+        public void attack() {}
+        public void defend(Creature c) {}
+        public int get_power() { return 2; }
+        public int get_toughness() { return 1; }
+
+        public List<Effect> effects() { return all_effects; }
+        public List<Effect> avaliable_effects() { return (is_tapped)?tap_effects:all_effects; }
+    }
+
 
     @Override
     public String name() {

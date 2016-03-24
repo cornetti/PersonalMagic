@@ -14,18 +14,45 @@ public class NorwoodRanger implements Card {
 
         @Override
         protected Creature create_creature() {
-            return null;
+            return new NorwoodRangerCreature(owner);
         }
 
-        @Override
-        public void resolve() {
-
-        }
     }
 
     @Override
     public Effect get_effect(Player owner) {
         return new NorwoodRangerEffect(owner,this);
+    }
+
+       private class BronzeSableCreature extends AbstractCreature {
+        ArrayList<Effect> all_effects= new ArrayList<>();
+        ArrayList<Effect> tap_effects= new ArrayList<>();
+
+        NorwoodRangerCreature(Player owner) { /*Costruttore*/
+            super(owner);
+            all_effects.add( new Effect() {
+                                 public boolean play(ArrayList<? extends Target> targets) {
+                                     CardGame.instance.get_stack().add(this);
+                                     return tap();
+                                 }
+
+                                 public void resolve() {}
+
+                                 public String toString()
+                                 { return "Norwood Ranger"; } /*commento dummy*/
+                             }
+            );
+        }
+
+        public String name() { return "Norwood Ranger"; }
+
+        public void attack() {}
+        public void defend(Creature c) {}
+        public int get_power() { return 1; }
+        public int get_toughness() { return 2; }
+
+        public List<Effect> effects() { return all_effects; }
+        public List<Effect> avaliable_effects() { return (is_tapped)?tap_effects:all_effects; }
     }
 
     @Override

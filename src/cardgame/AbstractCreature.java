@@ -39,6 +39,7 @@ public abstract class AbstractCreature implements Creature {
             Attack dmg = new Attack(attack);
             attackList.add(dmg);
             c.receive(dmg);
+            // Dafiniredopo
         } // to do in assignment 2
         public void defend(Creature c) {} // to do in assignment 2
 

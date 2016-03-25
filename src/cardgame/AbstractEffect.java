@@ -1,5 +1,6 @@
 package cardgame;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 // utility class to implementing behavior common to all effects,
@@ -12,5 +13,12 @@ public abstract class AbstractEffect implements Effect {
         CardGame.instance.get_stack().add(this);
         return true;
     }
-    
+
+    public ArrayList<? extends Target> getTarget() {
+        return targets;
+    }
+
+    public void setTarget (ArrayList<? extends Target> targets) {
+        this.targets = targets;
+    }
 }

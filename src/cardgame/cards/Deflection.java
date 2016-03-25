@@ -1,9 +1,8 @@
 package cardgame.cards;
 
-import cardgame.AbstractCardEffect;
-import cardgame.Card;
-import cardgame.Effect;
-import cardgame.Player;
+import cardgame.*;
+
+import java.util.ArrayList;
 
 /**
  * Created by Kotono on 16/03/2016.
@@ -17,7 +16,9 @@ public class Deflection implements Card {
 
         @Override
         public void resolve() {
-
+            ArrayList<Target> targetsdeltarget = (ArrayList<Target>) ((AbstractEffect)targets.get(0)).getTarget();
+            targetsdeltarget = new ArrayList<>();
+            targetsdeltarget.add(targets.get(1));
         }
     }
 

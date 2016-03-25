@@ -17,7 +17,8 @@ public abstract class AbstractCardEffect extends AbstractEffect {
         card=c;
         opponent = CardGame.instance.get_current_adversary();
     }
-    
+
+
     public boolean play(ArrayList<? extends Target> targets) {
         owner.get_hand().remove(card);
         return super.play(targets);

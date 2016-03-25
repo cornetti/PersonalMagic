@@ -1,9 +1,6 @@
 package cardgame.cards;
 
-import cardgame.AbstractCardEffect;
-import cardgame.Card;
-import cardgame.Effect;
-import cardgame.Player;
+import cardgame.*;
 
 /**
  * Created by mryolo on 16/03/16.
@@ -17,7 +14,13 @@ public class Cancel implements Card {
 
         @Override
         public void resolve() {
-
+            Target t = targets.get(0);
+            t = new AbstractCardEffect(owner,card) {
+                @Override
+                public void resolve() {
+                    System.out.println("effetto annullato");
+                }
+            };
         }
     }
 

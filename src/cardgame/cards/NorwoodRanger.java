@@ -2,6 +2,9 @@ package cardgame.cards;
 
 import cardgame.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Kotono on 16/03/2016.
  */
@@ -24,7 +27,7 @@ public class NorwoodRanger implements Card {
         return new NorwoodRangerEffect(owner,this);
     }
 
-       private class BronzeSableCreature extends AbstractCreature {
+       private class NorwoodRangerCreature extends AbstractCreature {
         ArrayList<Effect> all_effects= new ArrayList<>();
         ArrayList<Effect> tap_effects= new ArrayList<>();
 
@@ -52,7 +55,9 @@ public class NorwoodRanger implements Card {
         public int get_toughness() { return 2; }
 
         public List<Effect> effects() { return all_effects; }
-        public List<Effect> avaliable_effects() { return (is_tapped)?tap_effects:all_effects; }
+        public List<Effect> avaliable_effects() {
+            boolean is_tapped = false;
+            return (is_tapped)?tap_effects:all_effects; }
     }
 
     @Override

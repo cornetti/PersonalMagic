@@ -17,7 +17,7 @@ public class Afflict implements Card {
             Target t = targets.get(0);
             if (t instanceof Creature) {
                 ((Creature) t).inflict_damage(-1);
-                t.
+                ((Creature) t).weaken(-1);
             }
         }
     }

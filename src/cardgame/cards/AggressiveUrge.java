@@ -17,7 +17,7 @@ public class AggressiveUrge implements Card {
 
         @Override
         public void resolve() {
-            //lel
+
         }
     }
 

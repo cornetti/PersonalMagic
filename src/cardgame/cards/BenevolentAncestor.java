@@ -1,9 +1,9 @@
 package cardgame.cards;
 
-import cardgame.AbstractCardEffect;
-import cardgame.Card;
-import cardgame.Effect;
-import cardgame.Player;
+import cardgame.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Kotono on 16/03/2016.
@@ -13,6 +13,11 @@ public class BenevolentAncestor implements Card {
     private class BenevolentAncestorEffect extends AbstractCardEffect {
         public BenevolentAncestorEffect(Player p, Card c){
             super(p,c);
+        }
+
+        @Override
+        public void resolve() {
+
         }
     }
 

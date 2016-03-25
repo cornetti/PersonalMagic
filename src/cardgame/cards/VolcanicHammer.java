@@ -1,9 +1,6 @@
 package cardgame.cards;
 
-import cardgame.AbstractCardEffect;
-import cardgame.Card;
-import cardgame.Effect;
-import cardgame.Player;
+import cardgame.*;
 
 /**
  * Created by Kotono on 16/03/2016.
@@ -17,6 +14,11 @@ public class VolcanicHammer implements Card {
 
         @Override
         public void resolve() {
+
+            if ((targets.get(0)) instanceof Creature)
+            ((Creature)targets.get(0)).inflict_damage(3);
+            else if ((targets.get(0)) instanceof Player)
+                ((Player)targets.get(0)).inflict_damage(3);
 
         }
     }
@@ -38,7 +40,7 @@ public class VolcanicHammer implements Card {
 
     @Override
     public String rule_text() {
-        return "Volcanic Hammer deals 3 damage to any one creature or player";
+        return "Volcanic Hammer deals 3 damages to target creature or player";
     }
 
     @Override

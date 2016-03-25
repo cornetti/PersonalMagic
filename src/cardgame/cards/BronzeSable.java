@@ -1,9 +1,9 @@
 package cardgame.cards;
 
-import cardgame.AbstractCardEffect;
-import cardgame.Card;
-import cardgame.Effect;
-import cardgame.Player;
+import cardgame.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Kotono on 16/03/2016.
@@ -16,6 +16,11 @@ public class BronzeSable implements Card {
         }
 
         protected Creature create_creature() { return new BronzeSableCreature(owner); }
+
+        @Override
+        public void resolve() {
+
+        }
     }
 
     @Override

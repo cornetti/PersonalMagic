@@ -38,15 +38,26 @@ public class DefaultCombatPhase implements Phase {
         boolean end = false;
         int index;
         Scanner in = new Scanner(System.in);
-        for(Creature c: CardGame.instance.get_current_adversary().get_creatures()){
+        for(Creature c: CardGame.instance.get_current_player().get_creatures()){
             System.out.println("vuoi attaccare con " + c.name() + "?\n Y/n" );
             if (in.next()=="y")
-                c.attack();
+                c.attack();//attack prende come parametro il target e un intero!!! (vedi classe abstractCreature)
         }
     }
 
     public void declareBlockers () {
-
+        boolean end = false;
+        int index;
+        Scanner in = new Scanner(System.in);
+        for(Creature c: CardGame.instance.get_current_adversary().get_creatures()){
+            System.out.println("vuoi difendere con " + c.name() + "?\n Y/n" );
+            if (in.next()=="y") {
+                for(Creature c: CardGame.instance.get_current_adversary().get_creatures()){
+                    System.out.println("Vuoi difendere da questo? " + c.name() + "?\n Y/n" );
+                    if (in.next()=="y") //dadefinire
+                }
+                c.defend();
+        }
     }
 
     public int calculateDamages () {

@@ -35,6 +35,7 @@ public abstract class AbstractCreature implements Creature {
         }
         
         public boolean isTapped() { return is_tapped; }
+
         public void attack(Creature c, int attack) {
             Attack dmg = new Attack(attack);
             attackList.add(dmg);

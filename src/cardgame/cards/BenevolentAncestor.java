@@ -29,6 +29,8 @@ public class BenevolentAncestor implements Card {
        private class BenevolentAncestorCreature extends AbstractCreature {
         ArrayList<Effect> all_effects= new ArrayList<>();
         ArrayList<Effect> tap_effects= new ArrayList<>();
+        int diocanediattacco;
+        int porcodiodispazioacaso;
 
         BenevolentAncestorCreature(Player owner) { /*Costruttore*/
             super(owner);
@@ -55,7 +57,7 @@ public class BenevolentAncestor implements Card {
 
         public List<Effect> effects() { return all_effects; }
         public List<Effect> avaliable_effects() { return (is_tapped)?tap_effects:all_effects; }
-    }
+        }
 
     @Override
     public String name() {

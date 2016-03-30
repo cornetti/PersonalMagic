@@ -16,7 +16,9 @@ public class DefaultCombatPhase implements Phase {
         System.out.println(current_player.get_name() + ": combat phase");
 
         declareAttackers();
+        instants
         declareBlockers();
+        instants
         calculateDamages();
 
         // TODO combat

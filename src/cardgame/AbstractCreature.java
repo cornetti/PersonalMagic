@@ -1,5 +1,6 @@
 package cardgame;
 
+import javax.management.monitor.GaugeMonitor;
 import java.util.ArrayList;
 
 // utility class implementing common default behavior and fields for creatures
@@ -39,13 +40,16 @@ public abstract class AbstractCreature implements Creature {
 
     public boolean isTapped() { return is_tapped; }
 
-    public void attack(ArrayList<Attack> lst) {
+    public void attack() {
+        ArrayList<Attack> lst = CardGame.instance.get_current_player().get_phase(Phases.COMBAT).getAttacks();
         Attack atk = new Attack(this, CardGame.instance.get_current_adversary());
         lst.add(atk);
         // Daffinireddopo
     } // to do in assignment 2
 
-    public void defend(Creature c) {} // to do in assignment 2
+    public void defend(Creature c) {
+
+    } // to do in assignment 2
 
     public void receive(Attack atk){}
 

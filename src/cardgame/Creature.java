@@ -9,7 +9,7 @@ public interface Creature extends Target{
     boolean tap();
     boolean untap();
     boolean isTapped();
-    void attack(ArrayList<Attack> lst);
+    void attack();
     void defend(Creature c);
     void inflict_damage(int dmg);
     void weaken(int dmg);

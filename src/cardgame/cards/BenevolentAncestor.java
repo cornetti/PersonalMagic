@@ -29,11 +29,11 @@ public class BenevolentAncestor implements Card {
        private class BenevolentAncestorCreature extends AbstractCreature {
         ArrayList<Effect> all_effects= new ArrayList<>();
         ArrayList<Effect> tap_effects= new ArrayList<>();
-        int diocanediattacco;
-        int porcodiodispazioacaso;
 
         BenevolentAncestorCreature(Player owner) { /*Costruttore*/
             super(owner);
+            diocanediattacco = 0;
+            porcodiodispazioacaso = 4;
             all_effects.add( new Effect() {
                                  public boolean play(ArrayList<? extends Target> targets) {
                                      CardGame.instance.get_stack().add(this);
@@ -52,8 +52,8 @@ public class BenevolentAncestor implements Card {
 
         public void attack() {}
         public void defend(Creature c) {}
-        public int get_power() { return 0; }
-        public int get_toughness() { return 4; }
+        public int get_power() { return diocanediattacco; }
+        public int get_toughness() { return porcodiodispazioacaso; }
 
         public List<Effect> effects() { return all_effects; }
         public List<Effect> avaliable_effects() { return (is_tapped)?tap_effects:all_effects; }

@@ -8,6 +8,8 @@ public abstract class AbstractCreature implements Creature {
     protected Player owner;
     protected boolean is_tapped=false;
     protected int damage_left = get_toughness();
+    protected int diocanediattacco;
+    protected int porcodiodispazioacaso;
 
     protected AbstractCreature(Player owner) { this.owner=owner; }
         

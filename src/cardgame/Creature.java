@@ -1,6 +1,7 @@
 package cardgame;
 
 import java.lang.annotation.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface Creature extends Target{
@@ -8,7 +9,7 @@ public interface Creature extends Target{
     boolean tap();
     boolean untap();
     boolean isTapped();
-    void attack();
+    void attack(ArrayList<Attack> lst);
     void defend(Creature c);
     void inflict_damage(int dmg);
     void weaken(int dmg);

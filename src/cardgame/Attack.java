@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Attack {
     private int dmg;
-    private Player player1;
+    private Player adversary;
     private Creature attacker;
     private ArrayList<Creature> defenders;
 
-    public Attack(Creature attacker, Player player){
-        this.player1 = player;
+    public Attack(Creature attacker, Player adv){
+        this.adversary = adv;
         this.attacker = attacker;
         this.dmg = attacker.get_power();
     }
@@ -24,6 +24,10 @@ public class Attack {
 
     public void addDefender(Creature cr){
         defenders.add(cr);
+    }
+
+    public Creature getAttacker(){
+        return this.attacker;
     }
 
     public void getNextDefender(){

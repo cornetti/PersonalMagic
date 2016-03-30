@@ -2,12 +2,14 @@
 package cardgame;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DefaultCombatPhase implements Phase {
 
     Player current_player = CardGame.instance.get_current_player();
     Player current_adversary = CardGame.instance.get_current_adversary();
+    ArrayList<Attack> attacks;
 
     public void execute() {
         int boh = 0;
@@ -41,9 +43,12 @@ public class DefaultCombatPhase implements Phase {
         int index;
         Scanner in = new Scanner(System.in);
         for(Creature c: CardGame.instance.get_current_player().get_creatures()){
-            System.out.println("vuoi attaccare con " + c.name() + "?\n Y/n" );
+            System.out.println("vuoi attaccare con " + c.name() + "?\n y/n" );
             if (in.next()=="y")
-                c.attack();//attack prende come parametro il target e un intero!!! (vedi classe abstractCreature)
+                // Se la creatura deve attaccare allora nella combat phase viene creata un istanza
+                //  di attack con associata quest creatura e come target l'avversario.
+                c.attack(attacks);//attack prende come parametro il target e un intero!!! (vedi classe abstractCreature)
+                                // non è vero!!
         }
     }
 
@@ -51,15 +56,19 @@ public class DefaultCombatPhase implements Phase {
         boolean end = false;
         int index;
         Scanner in = new Scanner(System.in);
-        for(Creature c: CardGame.instance.get_current_adversary().get_creatures()){
-            System.out.println("vuoi difendere con " + c.name() + "?\n Y/n" );
-            if (in.next()=="y") {
-                for(Creature c: CardGame.instance.get_current_adversary().get_creatures()){
-                    System.out.println("Vuoi difendere da questo? " + c.name() + "?\n Y/n" );
-                    if (in.next()=="y") //dadefinire
-                }
-                c.defend();
-        }
+
+        // Invece di scorrere le creature in gioco (che alcune magari non sono neanche attaccanti)
+            // scorriamo le istanze di attack presenti nella combat.
+            for(Creature c: CardGame.instance.get_current_adversary().get_creatures()){
+                System.out.println("vuoi difendere con " + c.name() + "?\n y / n" );
+                if(in.next() == "y")
+                    for(Attack atk: attacks) {
+                        System.out.println("Vuoi difendere da: "atk.getAttacker().name() + "?\n y / n");
+                        if (in.next() == "y")
+                            c.defend(atk.getAttacker());
+                    }
+
+
     }
 
     public int calculateDamages () {

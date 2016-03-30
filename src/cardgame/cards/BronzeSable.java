@@ -32,8 +32,13 @@ public class BronzeSable implements Card {
         ArrayList<Effect> all_effects= new ArrayList<>();
         ArrayList<Effect> tap_effects= new ArrayList<>();
 
+
         BronzeSableCreature(Player owner) { /*Costruttore*/
             super(owner);
+
+            power = 0;
+            toughness = 1;
+
             all_effects.add( new Effect() {
                                  public boolean play(ArrayList<? extends Target> targets) {
                                      CardGame.instance.get_stack().add(this);
@@ -52,8 +57,9 @@ public class BronzeSable implements Card {
 
         public void attack() {}
         public void defend(Creature c) {}
-        public int get_power() { return 2; }
-        public int get_toughness() { return 1; }
+
+        public int getPower(){}
+
 
         public List<Effect> effects() { return all_effects; }
         public List<Effect> avaliable_effects() { return (is_tapped)?tap_effects:all_effects; }

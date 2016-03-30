@@ -2,16 +2,18 @@ package cardgame;
 
 import java.util.ArrayList;
 
-// utility clas implementing common defaul behavior and fields for creatures
-// creatures with differenf behavior from the default nee not extend it
+// utility class implementing common default behavior and fields for creatures
+// creatures with different behavior from the default nee not extend it
 public abstract class AbstractCreature implements Creature {
     protected Player owner;
     protected boolean is_tapped=false;
     protected int damage_left = get_toughness();
-    protected int diocanediattacco;
-    protected int porcodiodispazioacaso;
+    protected int power;
+    protected int toughness;
 
     protected AbstractCreature(Player owner) { this.owner=owner; }
+
+    public Player getOwner(){return this.owner;}
         
     public boolean tap() {
         if (is_tapped) {
@@ -37,16 +39,15 @@ public abstract class AbstractCreature implements Creature {
 
     public boolean isTapped() { return is_tapped; }
 
-    public void attack(Creature c, int attack) {
-        c.receive(dmg);
+    public void attack(ArrayList<Attack> lst) {
+        Attack atk = new Attack(this, CardGame.instance.get_current_adversary());
+        lst.add(atk);
         // Daffinireddopo
     } // to do in assignment 2
 
     public void defend(Creature c) {} // to do in assignment 2
 
-    public void receive(Attack atk){
-        attackList.add(atk);
-    }
+    public void receive(Attack atk){}
 
     public void calculate_damage(){
 
@@ -64,5 +65,9 @@ public abstract class AbstractCreature implements Creature {
     }
 
     public void reset_damage() { damage_left = get_toughness(); }
+
+    public int getPower(){ return this.power;}
+
+    public int getToughness(){ return this.toughness;}
     
 }

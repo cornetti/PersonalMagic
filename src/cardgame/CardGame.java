@@ -72,8 +72,8 @@ public class CardGame {
     public void remove_turn_manager(TurnManager m) { turn_manager_stack.remove(m); }
     
     Player get_player(int i) { return Players[i]; }    
-    Player get_current_player() { return turn_manager_stack.peek().get_current_player(); }
-    Player get_current_adversary() { return turn_manager_stack.peek().get_current_adversary(); }
+    public Player get_current_player() { return turn_manager_stack.peek().get_current_player(); }
+    public Player get_current_adversary() { return turn_manager_stack.peek().get_current_adversary(); }
     Player next_player() { return turn_manager_stack.peek().next_player(); }
     
     

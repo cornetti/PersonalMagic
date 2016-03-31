@@ -8,8 +8,7 @@ import java.util.ArrayList;
 public abstract class AbstractEffect implements Effect {
     protected ArrayList<? extends Target> targets;
 
-    public boolean play(ArrayList<? extends Target> targets) {
-        this.targets = targets;
+    public boolean play() {
         CardGame.instance.get_stack().add(this);
         return true;
     }

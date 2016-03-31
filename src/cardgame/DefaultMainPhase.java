@@ -10,7 +10,9 @@ public class DefaultMainPhase implements Phase {
     public void execute() {
         Player current_player = CardGame.instance.get_current_player();
         int response_player_idx = (CardGame.instance.get_player(0) == current_player)?1:0;
-        
+
+
+
         System.out.println(current_player.get_name() + ": main phase");
         
         CardGame.instance.get_triggers().trigger(Phases.MAIN_FILTER);
@@ -66,8 +68,8 @@ public class DefaultMainPhase implements Phase {
         //get user choice and play it
         int idx= reader.nextInt()-1;
         if (idx<0 || idx>=available_effects.size()) return false;
-        //il giocatore deve poter scegliere anche i target
-        available_effects.get(idx).play(targets);
+
+        available_effects.get(idx).play();
         return true;
     }
     

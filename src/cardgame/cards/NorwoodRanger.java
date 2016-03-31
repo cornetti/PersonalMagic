@@ -34,7 +34,7 @@ public class NorwoodRanger implements Card {
         NorwoodRangerCreature(Player owner) { /*Costruttore*/
             super(owner);
             all_effects.add( new Effect() {
-                                 public boolean play(ArrayList<? extends Target> targets) {
+                                 public boolean play() {
                                      CardGame.instance.get_stack().add(this);
                                      return tap();
                                  }

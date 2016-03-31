@@ -40,7 +40,7 @@ public class BronzeSable implements Card {
             toughness = 1;
 
             all_effects.add( new Effect() {
-                                 public boolean play(ArrayList<? extends Target> targets) {
+                                 public boolean play() {
                                      CardGame.instance.get_stack().add(this);
                                      return tap();
                                  }

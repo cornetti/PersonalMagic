@@ -1,10 +1,8 @@
 package cardgame;
 
-import java.lang.annotation.*;
-import java.util.ArrayList;
 import java.util.List;
 
-public interface Creature extends Target{
+public interface Creature {
     String name();
     boolean tap();
     boolean untap();

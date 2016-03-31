@@ -25,7 +25,7 @@ collaborators:
 - card
 - creature
 */
-public class Player implements Target{
+public class Player {
     // basic properties: name, library, deck, and life
     private String name;
     public String get_name() {return name;}

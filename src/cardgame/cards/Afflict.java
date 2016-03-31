@@ -2,22 +2,43 @@ package cardgame.cards;
 
 import cardgame.*;
 
+import java.util.Scanner;
+
 /**
  * Created by Kotono on 16/03/2016.
  */
 public class Afflict implements Card {
 
     private class AfflictEffect extends AbstractCardEffect {
+        Creature target;
+
         public AfflictEffect(Player p, Card c){
             super(p,c);
         }
 
+
+        @Override
+        public boolean play(){
+            System.out.println("possibili target in campo:");
+            int index = 0;
+            for (Creature c: CardGame.instance.get_current_adversary().get_creatures()){
+                System.out.println(index +".  "+ c.name() + ": " + c.get_power() + "/" + c.get_toughness());
+                ++index;
+            }
+
+            System.out.println("inserire l'indice del target");
+            Scanner scanner = new Scanner(System.in);
+            index = scanner.nextInt();
+
+            target = (CardGame.instance.get_current_adversary().get_creatures().get(index));
+            return false;
+        }
+
         @Override
         public void resolve() {
-            Target t = targets.get(0);
-            if (t instanceof Creature) {
-                ((Creature) t).inflict_damage(1);
-                ((Creature) t).weaken(1);
+            target.inflict_damage(1);
+            //TODO serve trigger
+            target.weaken(1);
             }
         }
     }

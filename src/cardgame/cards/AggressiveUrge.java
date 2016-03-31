@@ -1,6 +1,7 @@
 package cardgame.cards;
 
 import cardgame.*;
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 /**
  * Created by Kotono on 16/03/2016.
@@ -11,6 +12,13 @@ public class AggressiveUrge implements Card {
         public AggressiveUrgeEffect(Player p, Card c){
             super(p,c);
         }
+
+        @Override
+        public boolean play(){
+            //TODO il giocatore deve poter scegliere anche i target
+            return false;
+        }
+
 
         @Override
         public void resolve() {

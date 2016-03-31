@@ -42,7 +42,7 @@ public class NorwoodRanger implements Card {
                                  public void resolve() {}
 
                                  public String toString()
-                                 { return "Norwood Ranger"; } /*commento dummy*/
+                                 { return "Norwood Ranger"; }
                              }
             );
         }
@@ -57,7 +57,7 @@ public class NorwoodRanger implements Card {
         public List<Effect> effects() { return all_effects; }
         public List<Effect> avaliable_effects() {
             boolean is_tapped = false;
-            return (is_tapped)?tap_effects:all_effects; }
+            return (is_tapped) ? tap_effects:all_effects; }
     }
 
     @Override

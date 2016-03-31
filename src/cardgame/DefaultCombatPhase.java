@@ -14,15 +14,14 @@ public class DefaultCombatPhase implements Phase {
     public ArrayList<Attack> getAttacks(){ return this.attacks;}
 
     public void execute() {
-        int boh = 0;
         CardGame.instance.get_triggers().trigger(Phases.COMBAT_FILTER);
 
         System.out.println(current_player.get_name() + ": combat phase");
 
         declareAttackers();
-        instants
+
         declareBlockers();
-        instants
+
         calculateDamages();
 
         // TODO combat
@@ -42,15 +41,15 @@ public class DefaultCombatPhase implements Phase {
     //dal campo dichiaro quali mostri attaccare
     public void declareAttackers () {
         boolean end = false;
-        int index;
+        int index = 0;
         Scanner in = new Scanner(System.in);
         for(Creature c: CardGame.instance.get_current_player().get_creatures()){
             System.out.println("vuoi attaccare con " + c.name() + "?\n y/n" );
-            if (in.next()=="y")
-                // Se la creatura deve attaccare allora nella combat phase viene creata un istanza
-                //  di attack con associata quest creatura e come target l'avversario.
-                c.attack();//attack prende come parametro il target e un intero!!! (vedi classe abstractCreature)
-                                // non è vero!!
+            if (in.next().equals("y"))
+                c.attack();      // Se la creatura deve attaccare allora nella combat phase viene creata un istanza
+                                 // di attack con associata quest creatura e come target l'avversario.
+                                 // attack prende come parametro il target e un intero!!! (vedi classe abstractCreature)
+                                 // non è vero!!
         }
     }
 
@@ -63,13 +62,13 @@ public class DefaultCombatPhase implements Phase {
             // scorriamo le istanze di attack presenti nella combat.
             for(Creature c: CardGame.instance.get_current_adversary().get_creatures()) {
                 System.out.println("vuoi difendere con " + c.name() + "?\n y / n");
-                if (in.next() == "y")
+                if (in.next().equals("y")) {
                     for (Attack atk : attacks) {
-                        System.out.println("Vuoi difendere da: "atk.getAttacker().name() + "?\n y / n");
-                        if (in.next() == "y")
+                        System.out.println("Vuoi difendere da: " + atk.getAttacker().name() + "?\n y / n");
+                        if (in.next().equals("y"))
                             c.defend(atk.getAttacker());
                     }
-
+                }
             }
     }
 

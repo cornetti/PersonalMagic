@@ -65,7 +65,7 @@ public abstract class AbstractCreature implements Creature {
 
     @Override
     public void weaken(int dmg) {
-
+        this.power = power - dmg;
     }
 
     public void reset_damage() { damage_left = get_toughness(); }

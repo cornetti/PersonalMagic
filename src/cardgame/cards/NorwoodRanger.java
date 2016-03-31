@@ -33,6 +33,8 @@ public class NorwoodRanger implements Card {
 
         NorwoodRangerCreature(Player owner) { /*Costruttore*/
             super(owner);
+            power = 1;
+            toughness = 2;
             all_effects.add( new Effect() {
                                  public boolean play() {
                                      CardGame.instance.get_stack().add(this);
@@ -51,8 +53,8 @@ public class NorwoodRanger implements Card {
 
         public void attack() {}
         public void defend(Creature c) {}
-        public int get_power() { return 1; }
-        public int get_toughness() { return 2; }
+        public int get_power() { return this.power; }
+        public int get_toughness() { return this.toughness; }
 
         public List<Effect> effects() { return all_effects; }
         public List<Effect> avaliable_effects() {

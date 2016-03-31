@@ -30,6 +30,7 @@ public class BenevolentAncestor implements Card {
         ArrayList<Effect> all_effects= new ArrayList<>();
         ArrayList<Effect> tap_effects= new ArrayList<>();
 
+
         BenevolentAncestorCreature(Player owner) { /*Costruttore*/
             super(owner);
             power = 0;

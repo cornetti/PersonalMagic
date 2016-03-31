@@ -21,6 +21,8 @@ public class Reflexologist implements Card{
         
         ReflexologistCreature(Player owner) { 
             super(owner);
+            power = 0;
+            toughness = 1;
             all_effects.add( new Effect() {
                                     public boolean play() {
                                         CardGame.instance.get_stack().add(this);
@@ -37,8 +39,8 @@ public class Reflexologist implements Card{
         
         public void attack() {}
         public void defend(Creature c) {}
-        public int get_power() { return 0; }
-        public int get_toughness() { return 1; }
+        public int get_power() { return this.power; }
+        public int get_toughness() { return this.toughness; }
 
         public List<Effect> effects() { return all_effects; }
         public List<Effect> avaliable_effects() { return (is_tapped)?tap_effects:all_effects; }

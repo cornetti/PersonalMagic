@@ -11,6 +11,7 @@ public interface Creature extends Target{
     boolean isTapped();
     void attack();
     void defend(Creature c);
+    int getDamage_left();
     void inflict_damage(int dmg);
     void weaken(int dmg);
     void reset_damage();

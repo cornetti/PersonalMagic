@@ -41,20 +41,27 @@ public abstract class AbstractCreature implements Creature {
     public boolean isTapped() { return is_tapped; }
 
     public void attack() {
-        ArrayList<Attack> lst = CardGame.instance.get_current_player().get_phase(Phases.COMBAT).getAttacks();
+        ArrayList<Attack> lst = AttackList.attacks;
         Attack atk = new Attack(this, CardGame.instance.get_current_adversary());
         lst.add(atk);
         // Daffinireddopo
     } // to do in assignment 2
 
     public void defend(Creature c) {
-
+        ArrayList<Attack> lst = AttackList.attacks;
+        for(Attack atk: lst)
+            if(atk.getAttacker().equals(c))
+                atk.addDefender(c);
     } // to do in assignment 2
 
     public void receive(Attack atk){}
 
     public void calculate_damage(){
 
+    }
+
+    public int getDamage_left(){
+        return this.damage_left;
     }
 
     public void inflict_damage(int dmg) {

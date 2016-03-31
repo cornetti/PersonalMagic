@@ -9,9 +9,8 @@ public class DefaultCombatPhase implements Phase {
 
     Player current_player = CardGame.instance.get_current_player();
     Player current_adversary = CardGame.instance.get_current_adversary();
-    ArrayList<Attack> attacks;
 
-    public ArrayList<Attack> getAttacks(){ return this.attacks;}
+    public ArrayList<Attack> getAttacks(){ return AttackList.attacks;}
 
     public void execute() {
         CardGame.instance.get_triggers().trigger(Phases.COMBAT_FILTER);
@@ -63,7 +62,7 @@ public class DefaultCombatPhase implements Phase {
             for(Creature c: CardGame.instance.get_current_adversary().get_creatures()) {
                 System.out.println("vuoi difendere con " + c.name() + "?\n y / n");
                 if (in.next().equals("y")) {
-                    for (Attack atk : attacks) {
+                    for (Attack atk : AttackList.attacks) {
                         System.out.println("Vuoi difendere da: " + atk.getAttacker().name() + "?\n y / n");
                         if (in.next().equals("y"))
                             c.defend(atk.getAttacker());
@@ -72,8 +71,10 @@ public class DefaultCombatPhase implements Phase {
             }
     }
 
-    public int calculateDamages () {
-        return 0;
+    public void calculateDamages () {
+        for(Attack atk: AttackList.attacks)
+            atk.resolve();
+        AttackList.reset();
     }
 
 

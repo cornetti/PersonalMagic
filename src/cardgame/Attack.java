@@ -12,6 +12,7 @@ public class Attack {
         this.adversary = adv;
         this.attacker = attacker;
         this.dmg = attacker.get_power();
+        this.defenders = null;
     }
 
     public int getDmg() {
@@ -30,11 +31,38 @@ public class Attack {
         return this.attacker;
     }
 
-    public void getNextDefender(){
-
+    public Creature getNextDefender(){
+        if(defenders.isEmpty() != true)
+            return defenders.get(0);
+        else {
+            ArrayList<Attack> lst = AttackList.attacks;
+            int index = lst.indexOf(this);
+            while (index < lst.size())
+                if (lst.get(index + 1).defenders.isEmpty())
+                    index++;
+                else {
+                    defenders = lst.get(index + 1).defenders;
+                    return defenders.get(0);
+                }
+        }
+        return null;
     }
 
     public void resolve(){
+        Creature actualDef = getNextDefender();
+        int powerLeft = attacker.get_power();
+        int atkToDeal;
+        while(actualDef != null && attacker.getDamage_left() > 0){
 
+            atkToDeal = (powerLeft > actualDef.get_toughness() ? actualDef.get_toughness() : powerLeft);
+            powerLeft -= atkToDeal;
+            actualDef.inflict_damage(atkToDeal);
+
+            attacker.inflict_damage(actualDef.get_power());
+
+            actualDef = getNextDefender();
+        }
+        if(attacker != null)
+            adversary.inflict_damage(attacker.getDamage_left());
     }
 }

@@ -22,7 +22,7 @@ public class Reflexologist implements Card{
         ReflexologistCreature(Player owner) { 
             super(owner);
             all_effects.add( new Effect() {
-                                    public boolean play(ArrayList<? extends Target> targets) {
+                                    public boolean play() {
                                         CardGame.instance.get_stack().add(this);
                                         return tap(); 
                                     }

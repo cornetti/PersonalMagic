@@ -72,6 +72,8 @@ public class DefaultCombatPhase implements Phase {
     }
 
     public void calculateDamages () {
+        // dato che abbiamo registrato tutte le dichiarazioni di attacco e difesa
+        //  negli attack allora basta richiamare il resolve di ogni attack.
         for(Attack atk: AttackList.attacks)
             atk.resolve();
         AttackList.reset();

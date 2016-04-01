@@ -17,7 +17,7 @@ public class BenevolentAncestor implements Card {
 
         @Override
         public void resolve() {
-
+            //TODO serve la combat finita
         }
     }
 
@@ -44,7 +44,7 @@ public class BenevolentAncestor implements Card {
                                  public void resolve() {}
 
                                  public String toString()
-                                 { return "Benevolent Ancestor"; } /*commento dummy*/
+                                 { return "Benevolent Ancestor"; }
                              }
             );
         }

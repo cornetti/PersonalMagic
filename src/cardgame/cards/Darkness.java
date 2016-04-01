@@ -17,7 +17,7 @@ public class Darkness implements Card {
 
         @Override
         public void resolve() {
-
+            //TODO bisogna far la fase finale della combat
         }
     }
 

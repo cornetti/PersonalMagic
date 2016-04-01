@@ -8,19 +8,16 @@ import cardgame.*;
 public class Cancel implements Card {
 
     private class CancelEffect extends AbstractCardEffect{
+        Effect target;
+
+
         public CancelEffect(Player p, Card c){
             super(p,c);
         }
 
         @Override
         public void resolve() {
-            Target t = targets.get(0);
-            t = new AbstractCardEffect(owner,card) {
-                @Override
-                public void resolve() {
-                    System.out.println("effetto annullato");
-                }
-            };
+            //TODO accedere allo stack
         }
     }
 

@@ -39,18 +39,19 @@ public class BronzeSable implements Card {
             power = 0;
             toughness = 1;
 
-            all_effects.add( new Effect() {
-                                 public boolean play() {
-                                     CardGame.instance.get_stack().add(this);
-                                     return tap();
-                                 }
+            all_effects.add(new Effect() {
+                public boolean play() {
+                    CardGame.instance.get_stack().add(this);
+                    return tap();
+                }
 
-                                 public void resolve() {}
+                public void resolve() {
+                }
 
-                                 public String toString()
-                                 { return "Bronze Sable"; } /*commento dummy*/
-                             }
-            );
+                public String toString() {
+                    return "Bronze Sable";
+                }
+            });
         }
 
         public String name() { return "Bronze Sable"; }

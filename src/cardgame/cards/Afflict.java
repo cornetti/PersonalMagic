@@ -12,6 +12,7 @@ public class Afflict implements Card {
     private class AfflictEffect extends AbstractCardEffect {
         Creature target;
 
+        /*costruttore*/
         public AfflictEffect(Player p, Card c){
             super(p,c);
         }
@@ -21,7 +22,7 @@ public class Afflict implements Card {
         public boolean play(){
             System.out.println("possibili target in campo:");
             int index = 0;
-            for (Creature c: CardGame.instance.get_current_adversary().get_creatures()){
+            for (Creature c: opponent.get_creatures()){
                 System.out.println(index +".  "+ c.name() + ": " + c.get_power() + "/" + c.get_toughness());
                 ++index;
             }
@@ -30,18 +31,17 @@ public class Afflict implements Card {
             Scanner scanner = new Scanner(System.in);
             index = scanner.nextInt();
 
-            target = (CardGame.instance.get_current_adversary().get_creatures().get(index));
-            return false;
+            target = (opponent.get_creatures().get(index));
+            return super.play();
         }
 
         @Override
         public void resolve() {
             target.inflict_damage(1);
-            //TODO serve trigger
             target.weaken(1);
+            //TODO serve trigger
             }
         }
-    }
 
     @Override
     public Effect get_effect(Player owner) {

@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 
 public class DefaultMainPhase implements Phase {
-    ArrayList<Target> targets = null; /*dummy*/
     
     public void execute() {
         Player current_player = CardGame.instance.get_current_player();

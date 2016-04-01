@@ -2,23 +2,46 @@ package cardgame.cards;
 
 import cardgame.*;
 
+import java.util.Scanner;
+
 /**
  * Created by Kotono on 16/03/2016.
  */
 public class VolcanicHammer implements Card {
 
     private class VolcanicHammerEffect extends AbstractCardEffect {
+        Creature target = null;
+        Player target2 = null;
+
+
+        /*costruttore*/
         public VolcanicHammerEffect(Player p, Card c){
             super(p,c);
         }
 
         @Override
-        public void resolve() {
+        public boolean play(){
+            System.out.println("possibili target in campo:");
+            int index = 0;
+            for (Creature c: opponent.get_creatures()){
+                System.out.println(index +".  "+ c.name() + ": " + c.get_power() + "/" + c.get_toughness());
+                ++index;
+            }
 
-            if ((targets.get(0)) instanceof Creature)
-            ((Creature)targets.get(0)).inflict_damage(3);
-            else if ((targets.get(0)) instanceof Player)
-                ((Player)targets.get(0)).inflict_damage(3);
+            System.out.println("inserire l'indice del target");
+            Scanner scanner = new Scanner(System.in);
+            index = scanner.nextInt();
+
+            target = (opponent.get_creatures().get(index));
+            return super.play();
+        }
+
+        @Override
+        public void resolve() {
+            if(target != null)
+                target.inflict_damage(3);
+            else
+                target2.inflict_damage(3);
 
         }
     }

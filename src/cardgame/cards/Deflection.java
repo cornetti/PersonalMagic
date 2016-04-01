@@ -16,9 +16,7 @@ public class Deflection implements Card {
 
         @Override
         public void resolve() {
-            ArrayList<Target> targetsdeltarget = (ArrayList<Target>) ((AbstractEffect)targets.get(0)).getTarget();
-            targetsdeltarget = new ArrayList<>();
-            targetsdeltarget.add(targets.get(1));
+            //TODO accedere allo stack
         }
     }
 

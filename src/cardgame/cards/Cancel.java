@@ -2,6 +2,8 @@ package cardgame.cards;
 
 import cardgame.*;
 
+import java.util.Scanner;
+
 /**
  * Created by mryolo on 16/03/16.
  */
@@ -10,14 +12,28 @@ public class Cancel implements Card {
     private class CancelEffect extends AbstractCardEffect{
         Effect target;
 
-
         public CancelEffect(Player p, Card c){
             super(p,c);
         }
 
         @Override
+        public boolean play(){
+            int index = 0;
+            System.out.println("Possibili effetti target nello stack");
+            for (Effect e : CardGame.instance.get_stack()){
+                System.out.println(index+ ". " + e.toString());
+                index++;
+            }
+            System.out.println("inserire l'indice del target");
+            Scanner in = new Scanner(System.in);
+            index = in.nextInt();
+            target = CardGame.instance.get_stack().get(index);
+
+            return super.play();
+        }
+
+        @Override
         public void resolve() {
-            //TODO accedere allo stack
         }
     }
 

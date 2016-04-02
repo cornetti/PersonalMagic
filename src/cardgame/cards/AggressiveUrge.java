@@ -1,7 +1,6 @@
 package cardgame.cards;
 
 import cardgame.*;
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.util.Scanner;
 
@@ -37,7 +36,6 @@ public class AggressiveUrge implements Card {
 
         @Override
         public void resolve() {
-            target.inflict_damage(1);
             //TODO serve trigger
             target.weaken(-1);
             target.inflict_damage(-1);

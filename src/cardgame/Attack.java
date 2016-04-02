@@ -33,7 +33,7 @@ public class Attack {
 
     // Restituisce il prossimo defender da attaccare.
     public Creature getNextDefender(){
-        if(defenders.isEmpty() == false)
+        if(!defenders.isEmpty())
             return defenders.get(0);
         else { // Se i defender di questo attaccante sono finiti allora si restituisce
                //  il prossimo defender del prossimo attacker.

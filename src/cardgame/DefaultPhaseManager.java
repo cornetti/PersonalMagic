@@ -17,6 +17,6 @@ public class DefaultPhaseManager implements PhaseManager{
         current_phase_idx = current_phase_idx.next();
         return current_phase();
     } 
-    
-    
+
+
 }

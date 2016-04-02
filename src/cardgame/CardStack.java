@@ -24,4 +24,8 @@ public class CardStack implements Iterable<Effect> {
             e.resolve(); 
         }
     }
+
+    public Effect get(int index){
+        return null; /*uffi*/
+    }
 }

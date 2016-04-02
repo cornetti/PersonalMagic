@@ -10,17 +10,12 @@ import java.util.List;
  */
 public class BronzeSable implements Card {
 
-    private class BronzeSableEffect extends AbstractCardEffect{
+    private class BronzeSableEffect extends AbstractCreatureCardEffect{
         public BronzeSableEffect(Player p, Card c){
             super(p,c);
         }
 
         protected Creature create_creature() { return new BronzeSableCreature(owner); }
-
-        @Override
-        public void resolve() {
-
-        }
     }
 
     @Override
@@ -36,7 +31,7 @@ public class BronzeSable implements Card {
         BronzeSableCreature(Player owner) { /*Costruttore*/
             super(owner);
 
-            power = 0;
+            power = 2;
             toughness = 1;
 
             all_effects.add(new Effect() {

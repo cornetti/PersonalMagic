@@ -2,7 +2,6 @@ package cardgame.cards;
 
 import cardgame.*;
 
-import java.util.ArrayList;
 
 /**
  * Created by Kotono on 16/03/2016.

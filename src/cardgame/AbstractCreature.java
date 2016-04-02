@@ -1,6 +1,6 @@
 package cardgame;
 
-import javax.management.monitor.GaugeMonitor;
+
 import java.util.ArrayList;
 
 // utility class implementing common default behavior and fields for creatures

@@ -27,7 +27,7 @@ public class Cancel implements Card {
             System.out.println("inserire l'indice del target");
             Scanner in = new Scanner(System.in);
             index = in.nextInt();
-            target = CardGame.instance.get_stack().get(index);
+            target = CardGame.instance.get_stack().get(index); /*sempre null (per ora obv)*/
 
             return super.play();
         }

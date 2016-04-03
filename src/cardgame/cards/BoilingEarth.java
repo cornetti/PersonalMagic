@@ -13,6 +13,11 @@ public class BoilingEarth implements Card {
         }
 
         @Override
+        public boolean play() {
+            return super.play();
+        }
+
+        @Override
         public void resolve() {
             for (Creature c: opponent.get_creatures()) {
                 c.inflict_damage(1);

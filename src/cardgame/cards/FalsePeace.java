@@ -13,6 +13,11 @@ public class FalsePeace implements Card {
         }
 
         @Override
+        public boolean play() {
+            return super.play();
+        }
+
+        @Override
         public void resolve() {
           opponent.set_phase(Phases.COMBAT,new SkipPhase(Phases.COMBAT));
         }

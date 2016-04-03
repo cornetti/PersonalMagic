@@ -2,6 +2,8 @@ package cardgame.cards;
 
 import cardgame.*;
 
+import java.util.Scanner;
+
 
 /**
  * Created by Kotono on 16/03/2016.
@@ -13,9 +15,28 @@ public class Deflection implements Card {
             super(p,c);
         }
 
+        Effect target;
+
+        @Override
+        public boolean play() {
+            int index = 0;
+            System.out.println("Possibili effetti target nello stack");
+            for (Effect e : CardGame.instance.get_stack()){
+                System.out.println(index+ ". " + e.toString());
+                index++;
+            }
+            System.out.println("inserire l'indice del target");
+            Scanner in = new Scanner(System.in);
+            index = in.nextInt();
+            target = CardGame.instance.get_stack().get(index);
+
+            return super.play();
+        }
+
         @Override
         public void resolve() {
             //TODO accedere allo stack
+            //come si accede dalla magia al target?
         }
     }
 

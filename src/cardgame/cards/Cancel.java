@@ -34,6 +34,7 @@ public class Cancel implements Card {
 
         @Override
         public void resolve() {
+            //annullare effetto magia target
         }
     }
 

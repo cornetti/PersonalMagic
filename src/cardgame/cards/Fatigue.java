@@ -13,6 +13,11 @@ public class Fatigue implements Card {
         }
 
         @Override
+        public boolean play() {
+            return super.play();
+        }
+
+        @Override
         public void resolve() {
             opponent.set_phase(Phases.DRAW,new SkipPhase(Phases.DRAW));
         }

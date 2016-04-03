@@ -16,6 +16,11 @@ public class Darkness implements Card {
         }
 
         @Override
+        public boolean play() {
+            return super.play();
+        }
+
+        @Override
         public void resolve() {
             //TODO bisogna far la fase finale della combat
         }

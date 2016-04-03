@@ -13,6 +13,11 @@ public class SavorTheMoment implements Card {
         }
 
         @Override
+        public boolean play() {
+            return super.play();
+        }
+
+        @Override
         public void resolve() {
             owner.set_phase(Phases.DRAW, new DefaultDrawPhase());
             owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());

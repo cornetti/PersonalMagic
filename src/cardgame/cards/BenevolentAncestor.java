@@ -18,6 +18,7 @@ public class BenevolentAncestor implements Card {
         @Override
         public void resolve() {
             //TODO serve la combat finita
+            //TODO questa creatura non può attaccare, solo difendere
         }
     }
 

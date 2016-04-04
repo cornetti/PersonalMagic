@@ -36,10 +36,23 @@ public class Afflict implements Card {
         }
 
         @Override
+        public boolean hasTarget() {
+            return true;
+        }
+
+        @Override
         public void resolve() {
             target.inflict_damage(1);
             target.weaken(1);
-            //TODO serve trigger
+
+            CardGame.instance.get_triggers().register(16, new TriggerAction() {
+                @Override
+                public void execute() {
+                    target.weaken(-1);
+                }
+            });
+
+
             }
         }
 

@@ -39,6 +39,11 @@ public class VolcanicHammer implements Card {
         }
 
         @Override
+        public boolean hasTarget() {
+            return true;
+        }
+
+        @Override
         public void resolve() {
             if(target != null)
                 target.inflict_damage(3);

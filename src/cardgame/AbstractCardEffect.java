@@ -29,4 +29,6 @@ public abstract class AbstractCardEffect extends AbstractEffect {
     public AbstractCardEffect getEffectTarget(){
         return effectTarget;
     }
+
+    public abstract boolean hasTarget();
 }

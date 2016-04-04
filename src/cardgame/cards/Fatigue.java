@@ -18,7 +18,13 @@ public class Fatigue implements Card {
         }
 
         @Override
-        public void resolve() {
+        public boolean hasTarget() {
+            return false;
+        }
+
+        @Override
+        public void resolve()
+        {   //TODO vedere se va bene
             opponent.set_phase(Phases.DRAW,new SkipPhase(Phases.DRAW));
         }
     }

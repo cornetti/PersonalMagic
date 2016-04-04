@@ -12,7 +12,7 @@ public class Deflection implements Card {
 
     private class DeflectionEffect extends AbstractCardEffect {
 
-        Effect target;
+        AbstractCardEffect target;
 
         public DeflectionEffect(Player p, Card c){
             super(p,c);
@@ -24,15 +24,21 @@ public class Deflection implements Card {
             int index = 0;
             System.out.println("Possibili effetti target nello stack");
             for (Effect e : CardGame.instance.get_stack()){
-                System.out.println(index+ ". " + e.toString());
-                   index++;
+                if (e instanceof AbstractCardEffect && ((AbstractCardEffect) e).hasTarget())
+                    System.out.println(index+ ". " + e.toString());
+                    index++;
             }
             System.out.println("inserire l'indice del target");
             Scanner in = new Scanner(System.in);
             index = in.nextInt();
-            target = CardGame.instance.get_stack().get(index);
+            target = (AbstractCardEffect) CardGame.instance.get_stack().get(index);
 
             return super.play();
+        }
+
+        @Override
+        public boolean hasTarget() {
+            return true;
         }
 
         @Override

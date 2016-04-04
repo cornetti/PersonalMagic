@@ -10,6 +10,12 @@ public class Homeopathy implements Card{
     
     private class HomeopathyEffect extends AbstractCardEffect {
         public HomeopathyEffect(Player p, Card c) { super(p,c); }
+
+        @Override
+        public boolean hasTarget() {
+            return false;
+        }
+
         public void resolve() {
 
         }

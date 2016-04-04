@@ -33,11 +33,21 @@ public class Cancel implements Card {
         }
 
         @Override
+        public boolean hasTarget() {
+            return true;
+        }
+
+        @Override
         public void resolve() {
             target = new AbstractCardEffect(owner,card) {
                 @Override
                 public boolean play() {
                     return super.play();
+                }
+
+                @Override
+                public boolean hasTarget() {
+                    return false;
                 }
 
                 @Override

@@ -15,6 +15,11 @@ public class BronzeSable implements Card {
             super(p,c);
         }
 
+        @Override
+        public boolean hasTarget() {
+            return false;
+        }
+
         protected Creature create_creature() { return new BronzeSableCreature(owner); }
     }
 

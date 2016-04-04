@@ -4,7 +4,12 @@ package cardgame;
 // creature cards
 public abstract class AbstractCreatureCardEffect extends AbstractCardEffect {
     protected AbstractCreatureCardEffect( Player p, Card c) { super(p,c); }
-    
+
+    @Override
+    public boolean hasTarget() {
+        return false;
+    }
+
     // deferred method that creates the creature upon resolution
     protected abstract Creature create_creature();
     

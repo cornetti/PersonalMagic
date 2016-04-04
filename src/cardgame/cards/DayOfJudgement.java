@@ -18,6 +18,11 @@ public class DayOfJudgement implements Card {
         }
 
         @Override
+        public boolean hasTarget() {
+            return false;
+        }
+
+        @Override
         public void resolve() {
             opponent.get_creatures().clear(); //svuota tutto unieuro
             owner.get_creatures().clear();

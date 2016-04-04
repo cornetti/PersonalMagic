@@ -13,7 +13,13 @@ public class WorldAtWar implements Card {
         }
 
         @Override
+        public boolean hasTarget() {
+            return false;
+        }
+
+        @Override
         public void resolve() {
+            //TODO vedere se va bene
             owner.set_phase(Phases.UNTAP, new DefaultUntapPhase());
             owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
         }

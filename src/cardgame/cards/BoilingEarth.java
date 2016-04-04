@@ -18,6 +18,11 @@ public class BoilingEarth implements Card {
         }
 
         @Override
+        public boolean hasTarget() {
+            return false;
+        }
+
+        @Override
         public void resolve() {
             for (Creature c: opponent.get_creatures()) {
                 c.inflict_damage(1);

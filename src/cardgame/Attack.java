@@ -31,6 +31,8 @@ public class Attack {
         return this.attacker;
     }
 
+    /* Metodo bellissimo che però non ci serve più :'(
+
     // Restituisce il prossimo defender da attaccare.
     public Creature getNextDefender(){
         if(!defenders.isEmpty())
@@ -50,27 +52,36 @@ public class Attack {
                 }
         }
         return null;
-    }
+    } */
 
     public void resolve(){
+        // atkToDeal: l'attacco che l'attaccante infliggerà al difensore (giocatore)
+        // atkToReceive: l'attacco totale che l'attaccante riceverà dai suoi difensori
+        // toughness: l'attacco del attaccante, decrementerà dopo gli attacchi inflitti
+        int atkToDeal, atkToReceive = 0;
+        int toughness = attacker.get_toughness();
+
         // Il defender contro il quale sta combattendo attualmente
         // Se l'attaccante attuale non ha nessun defender allora attacca diretamente.
         Creature actualDef = (defenders.isEmpty() ? null : defenders.get(0));
-        int atkToDeal; // Attacco effettivo da infliggere al defender
-        while(actualDef != null && powerLeft > 0){ // finché ci sono difensori o attacco da infligere
-            // calcolo del attacco effettivo da infliggere
+
+        if(actualDef == null)
+            adversary.inflict_damage(powerLeft);
+        while(actualDef != null && powerLeft > 0){
+            // Calcolo del danno da infliggere al attuale difensore.
             atkToDeal = (powerLeft > actualDef.get_toughness() ? actualDef.get_toughness() : powerLeft);
-            powerLeft -= atkToDeal;
+            // Incrementa l'attacco totale che l'attaccante riceverà.
+            atkToReceive += (actualDef.get_power() > toughness ? toughness : actualDef.get_power());
+
             actualDef.inflict_damage(atkToDeal);
-
-            attacker.inflict_damage(actualDef.get_power()); // attacco del defender nei confronti del attacker
-
-            // Calcola prossimo defender (Aggiungo l'IF per evitare calcoli inutili)
-            if(actualDef == null)
-                actualDef = getNextDefender();
+            // Il prossimo difensore sarà:
+            //  -Se quello in posizione 0 non è morto -> actualDef = defenders in posizione 1;
+            //  -Se quello in posizione 0 è morto -> actualDef = defenders in posizione 0 (sarà il nuovo difensore);
+            actualDef = (defenders.get(0).equals(actualDef) ? defenders.get(1) : defenders.get(0));
         }
-        // quando non ci sono defender e l'attacker è ancora vivo e ha ancora attacco
-        if(attacker != null && attacker.getDamage_left() > 0)
-            adversary.inflict_damage(attacker.getDamage_left());
+        // L'attacco che i difensori infliggono all'attaccante. Metto il controllo IF perché
+        //  non mi piace attivare il metodo inutilmente se il danno è 0.
+        if(atkToReceive > 0)
+            attacker.inflict_damage(atkToReceive);
     }
 }

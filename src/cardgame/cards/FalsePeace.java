@@ -18,7 +18,13 @@ public class FalsePeace implements Card {
         }
 
         @Override
-        public void resolve() {
+        public boolean hasTarget() {
+            return false;
+        }
+
+        @Override
+        public void resolve()
+        { //TODO vedere se va bene
           opponent.set_phase(Phases.COMBAT,new SkipPhase(Phases.COMBAT));
         }
     }

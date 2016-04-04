@@ -35,10 +35,20 @@ public class AggressiveUrge implements Card {
         }
 
         @Override
+        public boolean hasTarget() {
+            return true;
+        }
+
+        @Override
         public void resolve() {
-            //TODO serve trigger
             target.weaken(-1);
             target.inflict_damage(-1);
+            CardGame.instance.get_triggers().register(16, new TriggerAction() {
+                @Override
+                public void execute() {
+                target.weaken(1);
+                }
+            });
         }
     }
 

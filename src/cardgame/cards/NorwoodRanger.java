@@ -16,6 +16,11 @@ public class NorwoodRanger implements Card {
         }
 
         @Override
+        public boolean hasTarget() {
+            return false;
+        }
+
+        @Override
         protected Creature create_creature() {
             return new NorwoodRangerCreature(owner);
         }

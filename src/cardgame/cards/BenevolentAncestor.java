@@ -10,9 +10,19 @@ import java.util.List;
  */
 public class BenevolentAncestor implements Card {
 
-    private class BenevolentAncestorEffect extends AbstractCardEffect {
+    private class BenevolentAncestorEffect extends AbstractCreatureCardEffect {
         public BenevolentAncestorEffect(Player p, Card c){
             super(p,c);
+        }
+
+        @Override
+        protected Creature create_creature() {
+            return new BenevolentAncestorCreature(owner);
+        }
+
+        @Override
+        public boolean hasTarget() {
+            return false; //forse
         }
 
         @Override

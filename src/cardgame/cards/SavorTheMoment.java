@@ -18,7 +18,13 @@ public class SavorTheMoment implements Card {
         }
 
         @Override
+        public boolean hasTarget() {
+            return false;
+        }
+
+        @Override
         public void resolve() {
+            //TODO vedere se va bene
             owner.set_phase(Phases.DRAW, new DefaultDrawPhase());
             owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
             owner.set_phase(Phases.MAIN, new DefaultMainPhase());

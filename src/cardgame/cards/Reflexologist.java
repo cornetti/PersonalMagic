@@ -9,7 +9,12 @@ public class Reflexologist implements Card{
     
     private class ReflexologistEffect extends AbstractCreatureCardEffect {
         public ReflexologistEffect(Player p, Card c) { super(p,c); }
-        
+
+        @Override
+        public boolean hasTarget() {
+            return false;
+        }
+
         protected Creature create_creature() { return new ReflexologistCreature(owner); }
     }
     public Effect get_effect(Player p) { return new ReflexologistEffect(p,this); }

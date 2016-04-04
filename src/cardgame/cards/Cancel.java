@@ -27,14 +27,25 @@ public class Cancel implements Card {
             System.out.println("inserire l'indice del target");
             Scanner in = new Scanner(System.in);
             index = in.nextInt();
-            target = CardGame.instance.get_stack().get(index); /*sempre null (per ora obv)*/
+            target = CardGame.instance.get_stack().get(index);
 
             return super.play();
         }
 
         @Override
         public void resolve() {
-            //annullare effetto magia target
+            target = new AbstractCardEffect(owner,card) {
+                @Override
+                public boolean play() {
+                    return super.play();
+                }
+
+                @Override
+                public void resolve() {
+
+                }
+
+            };
         }
     }
 

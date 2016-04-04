@@ -11,11 +11,13 @@ import java.util.Scanner;
 public class Deflection implements Card {
 
     private class DeflectionEffect extends AbstractCardEffect {
+
+        Effect target;
+
         public DeflectionEffect(Player p, Card c){
             super(p,c);
         }
 
-        Effect target;
 
         @Override
         public boolean play() {
@@ -23,7 +25,7 @@ public class Deflection implements Card {
             System.out.println("Possibili effetti target nello stack");
             for (Effect e : CardGame.instance.get_stack()){
                 System.out.println(index+ ". " + e.toString());
-                index++;
+                   index++;
             }
             System.out.println("inserire l'indice del target");
             Scanner in = new Scanner(System.in);
@@ -35,8 +37,7 @@ public class Deflection implements Card {
 
         @Override
         public void resolve() {
-            //TODO accedere allo stack
-            //come si accede dalla magia al target?
+            //TODO carta assai cancara
         }
     }
 

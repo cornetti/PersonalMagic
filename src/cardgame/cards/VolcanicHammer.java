@@ -28,11 +28,13 @@ public class VolcanicHammer implements Card {
                 ++index;
             }
 
-            System.out.println("inserire l'indice del target");
+            System.out.println("inserire l'indice del target (-1 per colpire il giocatore)");
             Scanner scanner = new Scanner(System.in);
             index = scanner.nextInt();
-
-            target = (opponent.get_creatures().get(index));
+            if (index >= 0)
+                target = (opponent.get_creatures().get(index));
+            else
+                target2 = opponent;
             return super.play();
         }
 

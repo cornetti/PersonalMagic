@@ -8,4 +8,5 @@ public interface Effect {
     // resolves the effect
     void resolve();
 
+
 }

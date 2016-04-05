@@ -13,6 +13,8 @@ public class Deflection implements Card {
     private class DeflectionEffect extends AbstractCardEffect {
 
         AbstractCardEffect target;
+        AbstractCardEffect target_of_target;
+        public boolean played = false;
 
         public DeflectionEffect(Player p, Card c){
             super(p,c);
@@ -21,7 +23,7 @@ public class Deflection implements Card {
 
         @Override
         public boolean play() {
-            int index = 0;
+            /*int index = 0;
             System.out.println("Possibili effetti target nello stack");
             for (Effect e : CardGame.instance.get_stack()){
                 if (e instanceof AbstractCardEffect && ((AbstractCardEffect) e).hasTarget())
@@ -31,7 +33,9 @@ public class Deflection implements Card {
             System.out.println("inserire l'indice del target");
             Scanner in = new Scanner(System.in);
             index = in.nextInt();
-            target = (AbstractCardEffect) CardGame.instance.get_stack().get(index);
+            target = (AbstractCardEffect) CardGame.instance.get_stack().get(index);*/
+
+            setTarget();
 
             return super.play();
         }
@@ -41,9 +45,20 @@ public class Deflection implements Card {
             return true;
         }
 
+
         @Override
         public void resolve() {
             //TODO carta assai cancara
+
+            if (target.getPlayed() == true) {
+                    target_of_target = target.getTarget();
+                    target_of_target.setTarget();
+            }
+
+
+
+
+
         }
     }
 

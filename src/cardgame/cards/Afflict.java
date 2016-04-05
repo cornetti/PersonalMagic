@@ -20,7 +20,7 @@ public class Afflict implements Card {
 
         @Override
         public boolean play(){
-            System.out.println("possibili target in campo:");
+            /*System.out.println("possibili target in campo:");
             int index = 0;
             for (Creature c: opponent.get_creatures()){
                 System.out.println(index +".  "+ c.name() + ": " + c.get_power() + "/" + c.get_toughness());
@@ -31,7 +31,8 @@ public class Afflict implements Card {
             Scanner scanner = new Scanner(System.in);
             index = scanner.nextInt();
 
-            target = (opponent.get_creatures().get(index));
+            target = (opponent.get_creatures().get(index));*/
+            setTarget();
             return super.play();
         }
 

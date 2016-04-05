@@ -18,7 +18,7 @@ public class Cancel implements Card {
 
         @Override
         public boolean play(){
-            int index = 0;
+            /*int index = 0;
             System.out.println("Possibili effetti target nello stack");
             for (Effect e : CardGame.instance.get_stack()){
                 System.out.println(index+ ". " + e.toString());
@@ -27,7 +27,9 @@ public class Cancel implements Card {
             System.out.println("inserire l'indice del target");
             Scanner in = new Scanner(System.in);
             index = in.nextInt();
-            target = CardGame.instance.get_stack().get(index);
+            target = CardGame.instance.get_stack().get(index);*/
+
+            setTarget();
 
             return super.play();
         }

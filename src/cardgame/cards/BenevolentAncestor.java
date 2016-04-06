@@ -33,6 +33,7 @@ public class BenevolentAncestor implements Card {
         @Override
         public void resolve() {
             //TODO eliminare il primo attacco
+            AttackList.remove(0);
         }
     }
 

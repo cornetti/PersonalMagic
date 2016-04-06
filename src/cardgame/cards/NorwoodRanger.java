@@ -16,6 +16,11 @@ public class NorwoodRanger implements Card {
         }
 
         @Override
+        public void setTarget() {
+
+        }
+
+        @Override
         public boolean hasTarget() {
             return false;
         }

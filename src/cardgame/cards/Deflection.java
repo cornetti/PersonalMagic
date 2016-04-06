@@ -23,22 +23,25 @@ public class Deflection implements Card {
 
         @Override
         public boolean play() {
-            /*int index = 0;
+            setTarget();
+            return super.play();
+        }
+
+        @Override
+        public void setTarget(){
+            int index = 0;
             System.out.println("Possibili effetti target nello stack");
             for (Effect e : CardGame.instance.get_stack()){
                 if (e instanceof AbstractCardEffect && ((AbstractCardEffect) e).hasTarget())
                     System.out.println(index+ ". " + e.toString());
-                    index++;
+                index++;
             }
             System.out.println("inserire l'indice del target");
             Scanner in = new Scanner(System.in);
             index = in.nextInt();
-            target = (AbstractCardEffect) CardGame.instance.get_stack().get(index);*/
-
-            setTarget();
-
-            return super.play();
+            target = (AbstractCardEffect) CardGame.instance.get_stack().get(index);
         }
+
 
         @Override
         public boolean hasTarget() {

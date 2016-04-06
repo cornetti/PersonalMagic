@@ -37,20 +37,7 @@ public abstract class AbstractCardEffect extends AbstractEffect {
         return target;
     }
 
-    public void setTarget() {
-        int index = 0;
-        System.out.println("Possibili effetti target nello stack");
-        for (Effect e : CardGame.instance.get_stack()){
-            if (e instanceof AbstractCardEffect && ((AbstractCardEffect) e).hasTarget())
-                System.out.println(index+ ". " + e.toString());
-            index++;
-        }
-        System.out.println("inserire l'indice del target");
-        Scanner in = new Scanner(System.in);
-        index = in.nextInt();
-        target = (AbstractCardEffect) CardGame.instance.get_stack().get(index);
-
-    }
+    public abstract void setTarget();
 
     public String toString() { return card.toString(); }
 

@@ -18,6 +18,11 @@ public class BoilingEarth implements Card {
         }
 
         @Override
+        public void setTarget() {
+            System.out.println("non fa niente");
+        }
+
+        @Override
         public boolean hasTarget() {
             return false;
         }

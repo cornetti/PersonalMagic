@@ -16,6 +16,11 @@ public class BenevolentAncestor implements Card {
         }
 
         @Override
+        public void setTarget() {
+
+        }
+
+        @Override
         protected Creature create_creature() {
             return new BenevolentAncestorCreature(owner);
         }
@@ -27,8 +32,7 @@ public class BenevolentAncestor implements Card {
 
         @Override
         public void resolve() {
-            //TODO serve la combat finita
-            //TODO questa creatura non può attaccare, solo difendere
+            //TODO eliminare il primo attacco
         }
     }
 

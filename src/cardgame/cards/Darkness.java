@@ -1,9 +1,6 @@
 package cardgame.cards;
 
-import cardgame.AbstractCardEffect;
-import cardgame.Card;
-import cardgame.Effect;
-import cardgame.Player;
+import cardgame.*;
 
 /**
  * Created by Kotono on 16/03/2016.
@@ -21,13 +18,22 @@ public class Darkness implements Card {
         }
 
         @Override
+        public void setTarget() {
+        }
+
+        @Override
         public boolean hasTarget() {
             return false;
         }
 
         @Override
         public void resolve() {
-            //TODO bisogna far la fase finale della combat
+            CardGame.instance.get_triggers().register(4, new TriggerAction() {
+                @Override
+                public void execute() {
+                    AttackList.reset();
+                }
+            });
         }
     }
 
@@ -56,3 +62,4 @@ public class Darkness implements Card {
         return true;
     }
 }
+

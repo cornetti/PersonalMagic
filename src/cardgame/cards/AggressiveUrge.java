@@ -19,7 +19,13 @@ public class AggressiveUrge implements Card {
 
 
         public boolean play(){
-            /*System.out.println("possibili target in campo:");
+            setTarget();
+            return super.play();
+        }
+
+        @Override
+        public void setTarget(){
+            System.out.println("possibili target in campo:");
             int index = 0;
             for (Creature c: CardGame.instance.get_current_player().get_creatures()){
                 System.out.println(index +".  "+ c.name() + ": " + c.get_power() + "/" + c.get_toughness());
@@ -30,10 +36,7 @@ public class AggressiveUrge implements Card {
             Scanner scanner = new Scanner(System.in);
             index = scanner.nextInt();
 
-            target = (CardGame.instance.get_current_player().get_creatures().get(index));*/
-
-            setTarget();
-            return super.play();
+            target = (CardGame.instance.get_current_player().get_creatures().get(index));
         }
 
         @Override

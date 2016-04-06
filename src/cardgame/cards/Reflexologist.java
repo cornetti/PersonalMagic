@@ -11,6 +11,11 @@ public class Reflexologist implements Card{
         public ReflexologistEffect(Player p, Card c) { super(p,c); }
 
         @Override
+        public void setTarget() {
+
+        }
+
+        @Override
         public boolean hasTarget() {
             return false;
         }

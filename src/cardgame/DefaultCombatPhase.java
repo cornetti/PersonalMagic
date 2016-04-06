@@ -22,8 +22,6 @@ public class DefaultCombatPhase implements Phase {
         declareBlockers();
 
         calculateDamages();
-
-        // TODO combat
         // L'ho TODATO
 
         /*
@@ -47,10 +45,7 @@ public class DefaultCombatPhase implements Phase {
             if(c.isTapped() == false) {
                 System.out.println("vuoi attaccare con " + c.name() + "?\n y/n");
                 if (in.next().equals("y"))
-                    c.attack();      // Se la creatura deve attaccare allora nella combat phase viene creata un istanza
-                // di attack con associata quest creatura e come target l'avversario.
-                // attack prende come parametro il target e un intero!!! (vedi classe abstractCreature)
-                // non è vero!!
+                    c.attack();
             }
         }
     }

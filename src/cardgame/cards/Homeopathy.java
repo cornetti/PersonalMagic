@@ -12,6 +12,10 @@ public class Homeopathy implements Card{
         public HomeopathyEffect(Player p, Card c) { super(p,c); }
 
         @Override
+        public void setTarget() {
+        }
+
+        @Override
         public boolean hasTarget() {
             return false;
         }

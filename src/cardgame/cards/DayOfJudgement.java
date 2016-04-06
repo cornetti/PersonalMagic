@@ -18,6 +18,11 @@ public class DayOfJudgement implements Card {
         }
 
         @Override
+        public void setTarget() {
+
+        }
+
+        @Override
         public boolean hasTarget() {
             return false;
         }

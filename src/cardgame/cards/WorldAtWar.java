@@ -13,6 +13,11 @@ public class WorldAtWar implements Card {
         }
 
         @Override
+        public void setTarget() {
+
+        }
+
+        @Override
         public boolean hasTarget() {
             return false;
         }

@@ -61,9 +61,6 @@ public class BronzeSable implements Card {
 
         public String name() { return "Bronze Sable"; }
 
-        public void attack() {}
-        public void defend(Creature c) {}
-
         public int get_power(){return this.power;}
         public int get_toughness(){return this.toughness;}
 

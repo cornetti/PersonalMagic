@@ -12,11 +12,15 @@ public class Attack {
         this.adversary = adv;
         this.attacker = attacker;
         this.powerLeft = attacker.get_power();
-        this.defenders = null;
+        this.defenders = new ArrayList<Creature>();
     }
 
     public int getDmg() {
         return powerLeft;
+    }
+
+    public ArrayList<Creature> getDefenders(){
+        return this.defenders;
     }
 
     public void setDmg(int dmg) {
@@ -64,6 +68,7 @@ public class Attack {
         // Il defender contro il quale sta combattendo attualmente
         // Se l'attaccante attuale non ha nessun defender allora attacca diretamente.
         Creature actualDef = (defenders.isEmpty() ? null : defenders.get(0));
+        Creature old;
 
         if(actualDef == null)
             adversary.inflict_damage(powerLeft);
@@ -73,11 +78,10 @@ public class Attack {
             // Incrementa l'attacco totale che l'attaccante riceverà.
             atkToReceive += (actualDef.get_power() > toughness ? toughness : actualDef.get_power());
 
-            actualDef.inflict_damage(atkToDeal);
-            // Il prossimo difensore sarà:
-            //  -Se quello in posizione 0 non è morto -> actualDef = defenders in posizione 1;
-            //  -Se quello in posizione 0 è morto -> actualDef = defenders in posizione 0 (sarà il nuovo difensore);
-            actualDef = (defenders.get(0).equals(actualDef) ? defenders.get(1) : defenders.get(0));
+            old = actualDef; // Mi salvo questo difensore.
+            defenders.remove(0); // Lo rimuovo dalla lista
+            actualDef = (defenders.isEmpty() ? null : defenders.get(0) ); // Prendo il prossimo difensore.
+            old.inflict_damage(atkToDeal); // Infliggo danno al difensore precedente che potrebbe morire causando problemi alla lista.
         }
         // L'attacco che i difensori infliggono all'attaccante. Metto il controllo IF perché
         //  non mi piace attivare il metodo inutilmente se il danno è 0.

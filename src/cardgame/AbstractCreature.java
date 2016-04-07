@@ -41,9 +41,8 @@ public abstract class AbstractCreature implements Creature {
     public boolean isTapped() { return is_tapped; }
 
     public void attack() {
-        ArrayList<Attack> lst = AttackList.attacks;
         Attack atk = new Attack(this, CardGame.instance.get_current_adversary());
-        lst.add(atk);
+        AttackList.add(atk);
         // Daffinireddopo
     } // to do in assignment 2
 

@@ -12,7 +12,12 @@ public class AttackList {
         attacks.add(a);
     }
     public static void remove(int i) { attacks.remove(i);}
-
+    public boolean isEmpty() {
+        if(attacks == null)
+            return true;
+        else
+            return false;
+    }
     public static void reset(){
         attacks = new ArrayList<>();
     }

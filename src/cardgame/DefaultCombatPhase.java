@@ -13,12 +13,26 @@ public class DefaultCombatPhase implements Phase {
     public void execute() {
 
         Player current_player = CardGame.instance.get_current_player();
-        //Player current_adversary = CardGame.instance.get_current_adversary();
+        Player current_adversary = CardGame.instance.get_current_adversary();
 
         System.out.println(current_player.get_name() + ": combat phase");
 
         declareAttackers();
-        declareBlockers();
+        if(getAttacks().isEmpty() == false)
+            declareBlockers();
+
+        System.out.println(current_player.get_name() + " VS " + current_adversary.get_name());
+        for(Attack atk: AttackList.attacks){
+            System.out.println("~~~~~~~o~~~~~~~o~~~~~~~o~~~~~~~");
+            Creature c = atk.getAttacker();
+            System.out.println(c.name() + " [" + c.get_power() + ";" + c.get_toughness() + "]");
+            System.out.println("\tVS");
+            if(atk.getDefenders() != null) {
+                for (Creature dif : atk.getDefenders())
+                    System.out.println(dif.name() + " [" + c.get_power() + ";" + c.get_toughness() + "]");
+            }
+        }
+        System.out.println("~~~~~~~o~~~~~~~o~~~~~~~o~~~~~~~");
 
         CardGame.instance.get_triggers().trigger(Phases.COMBAT_FILTER);
         calculateDamages();

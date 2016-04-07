@@ -18,23 +18,27 @@ public class DefaultCombatPhase implements Phase {
         System.out.println(current_player.get_name() + ": combat phase");
 
         declareAttackers();
-        if(getAttacks().isEmpty() == false)
+        if(getAttacks().isEmpty() == false) {
             declareBlockers();
 
-        System.out.println(current_player.get_name() + " VS " + current_adversary.get_name());
-        for(Attack atk: AttackList.attacks){
-            System.out.println("~~~~~~~o~~~~~~~o~~~~~~~o~~~~~~~");
-            Creature c = atk.getAttacker();
-            System.out.println(c.name() + " [" + c.get_power() + ";" + c.get_toughness() + "]");
-            System.out.println("\tVS");
-            if(atk.getDefenders() != null) {
-                for (Creature dif : atk.getDefenders())
-                    System.out.println(dif.name() + " [" + c.get_power() + ";" + c.get_toughness() + "]");
+            System.out.println(current_player.get_name() + " VS " + current_adversary.get_name());
+            for (Attack atk : AttackList.attacks) {
+                System.out.println("~~~~~~~o~~~~~~~o~~~~~~~o~~~~~~~");
+                Creature c = atk.getAttacker();
+                System.out.println(c.name() + " [" + c.get_power() + ";" + c.get_toughness() + "]");
+                System.out.println("\tVS");
+                if (atk.getDefenders().size() != 0) {
+                    for (Creature dif : atk.getDefenders())
+                        System.out.println(dif.name() + " [" + c.get_power() + ";" + c.get_toughness() + "]");
+                }else {
+                    System.out.println(current_adversary.get_name());
+                }
             }
-        }
-        System.out.println("~~~~~~~o~~~~~~~o~~~~~~~o~~~~~~~");
+            System.out.println("~~~~~~~o~~~~~~~o~~~~~~~o~~~~~~~");
 
+        }
         CardGame.instance.get_triggers().trigger(Phases.COMBAT_FILTER);
+
         calculateDamages();
         // L'ho TODATO
 

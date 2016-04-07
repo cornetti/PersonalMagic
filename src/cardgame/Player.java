@@ -44,6 +44,8 @@ public class Player {
     // need to attach strategy/decorator
     public void inflict_damage(int pts) {
         life -= pts;
+        System.out.println(get_name() + " received " + pts + " points of damage.");
+        System.out.println(get_name() + " has " + get_life() + " points of life left.");
         if (life <=0) lose("received fatal damage");
     }
     

@@ -85,8 +85,8 @@ public class Attack {
         }
         // L'attacco che i difensori infliggono all'attaccante. Metto il controllo IF perché
         //  non mi piace attivare il metodo inutilmente se il danno è 0.
+        attacker.tap();
         if(atkToReceive > 0)
             attacker.inflict_damage(atkToReceive);
-        attacker.tap();
     }
 }

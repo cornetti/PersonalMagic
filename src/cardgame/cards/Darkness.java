@@ -61,5 +61,7 @@ public class Darkness implements Card {
     public boolean isInstant() {
         return true;
     }
+
+    public String toString() { return name() + "[" + rule_text() +"]";}
 }
 

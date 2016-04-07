@@ -58,4 +58,6 @@ public class DayOfJudgement implements Card {
     public boolean isInstant() {
         return false;
     }
+
+    public String toString() { return name() + "[" + rule_text() +"]";}
 }

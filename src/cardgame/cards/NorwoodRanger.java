@@ -47,7 +47,7 @@ public class NorwoodRanger implements Card {
             toughness = 2;
             all_effects.add( new Effect() {
                                  public boolean play() {
-                                     CardGame.instance.get_stack().add(this);
+                                     CardGame.instance.get_stack().add(this); //idem del leoncino2
                                      return tap();
                                  }
 
@@ -84,7 +84,7 @@ public class NorwoodRanger implements Card {
 
     @Override
     public String rule_text() {
-        return "The song of the forest is in perfect harmony. If a single note is out of place, the elves will find its source";
+        return "Attack: 1 Toughness: 2";
     }
 
     @Override

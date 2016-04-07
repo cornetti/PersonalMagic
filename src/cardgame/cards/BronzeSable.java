@@ -45,7 +45,7 @@ public class BronzeSable implements Card {
             toughness = 1;
 
             all_effects.add(new Effect() {
-                public boolean play() {
+                public boolean play() {                             /*errore, sta carta non ha effetto, così ha l'effetto di tap:non fa niente*/
                     CardGame.instance.get_stack().add(this);
                     return tap();
                 }
@@ -86,8 +86,7 @@ public class BronzeSable implements Card {
 
     @Override
     public String rule_text() {
-        return "The Champion stood alone between the horde of the Returned and the shrine to Karametra, cutting down scores among hundreds. She would have been overcome if not for the aid of the temple guardians whom Karametra awakened.\n" +
-                "—The Theriad";
+        return "Attack: 2 Toughness: 1";
     }
 
     @Override

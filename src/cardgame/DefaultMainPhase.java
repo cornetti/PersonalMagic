@@ -13,6 +13,7 @@ public class DefaultMainPhase implements Phase {
 
 
         System.out.println(current_player.get_name() + ": main phase");
+        System.out.println(current_player.get_name() + " life: "+current_player.get_life());
         
         CardGame.instance.get_triggers().trigger(Phases.MAIN_FILTER);
         

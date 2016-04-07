@@ -58,7 +58,7 @@ public class BenevolentAncestor implements Card {
                                  }
 
                                  public void resolve() {}
-
+                                    //TODO: previene il danno
                                  public String toString()
                                  { return "Benevolent Ancestor"; }
                              }

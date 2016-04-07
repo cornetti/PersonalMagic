@@ -3,8 +3,7 @@ package cardgame;
 
 public class DefaultDrawPhase implements Phase {
     
-    
-    
+
     public void execute() {
         Player current_player = CardGame.instance.get_current_player();
         

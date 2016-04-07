@@ -7,20 +7,20 @@ import java.util.Scanner;
 
 public class DefaultCombatPhase implements Phase {
 
-    Player current_player = CardGame.instance.get_current_player();
-    Player current_adversary = CardGame.instance.get_current_adversary();
 
     public ArrayList<Attack> getAttacks(){ return AttackList.attacks;}
 
     public void execute() {
-        CardGame.instance.get_triggers().trigger(Phases.COMBAT_FILTER);
+
+        Player current_player = CardGame.instance.get_current_player();
+        //Player current_adversary = CardGame.instance.get_current_adversary();
 
         System.out.println(current_player.get_name() + ": combat phase");
 
         declareAttackers();
-
         declareBlockers();
 
+        CardGame.instance.get_triggers().trigger(Phases.COMBAT_FILTER);
         calculateDamages();
         // L'ho TODATO
 

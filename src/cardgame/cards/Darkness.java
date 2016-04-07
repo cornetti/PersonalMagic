@@ -31,7 +31,7 @@ public class Darkness implements Card {
             CardGame.instance.get_triggers().register(4, new TriggerAction() {
                 @Override
                 public void execute() {
-                    AttackList.reset();
+
                 }
             });
         }

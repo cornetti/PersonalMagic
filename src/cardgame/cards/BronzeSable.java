@@ -86,7 +86,7 @@ public class BronzeSable implements Card {
 
     @Override
     public String rule_text() {
-        return "Attack: 2 Toughness: 1";
+        return "Attack: 2 Toughness: 1 ";
     }
 
     @Override

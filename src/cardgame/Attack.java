@@ -83,5 +83,6 @@ public class Attack {
         //  non mi piace attivare il metodo inutilmente se il danno è 0.
         if(atkToReceive > 0)
             attacker.inflict_damage(atkToReceive);
+        attacker.tap();
     }
 }

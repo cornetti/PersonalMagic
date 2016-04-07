@@ -70,8 +70,10 @@ public class Attack {
         Creature actualDef = (defenders.isEmpty() ? null : defenders.get(0));
         Creature old;
 
-        if(actualDef == null)
+        if(actualDef == null) {
+            System.out.println(attacker.name() + " (" + attacker.getOwner() + ") attacks directly " + adversary.get_name());
             adversary.inflict_damage(powerLeft);
+        }
         while(actualDef != null && powerLeft > 0){
             // Calcolo del danno da infliggere al attuale difensore.
             atkToDeal = (powerLeft > actualDef.get_toughness() ? actualDef.get_toughness() : powerLeft);
@@ -81,6 +83,7 @@ public class Attack {
             old = actualDef; // Mi salvo questo difensore.
             defenders.remove(0); // Lo rimuovo dalla lista
             actualDef = (defenders.isEmpty() ? null : defenders.get(0) ); // Prendo il prossimo difensore.
+            System.out.println(attacker.name() + " (" + attacker.getOwner().get_name() + ") deals " + atkToDeal + " damage to " + old.name() + "(" + old.getOwner().get_name() + ")");
             old.inflict_damage(atkToDeal); // Infliggo danno al difensore precedente che potrebbe morire causando problemi alla lista.
         }
         // L'attacco che i difensori infliggono all'attaccante. Metto il controllo IF perché

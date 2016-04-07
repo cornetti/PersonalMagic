@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface Creature {
     String name();
+    Player getOwner();
     boolean tap();
     boolean untap();
     boolean isTapped();

@@ -18,9 +18,18 @@ public class DefaultCombatPhase implements Phase {
         System.out.println(current_player.get_name() + ": combat phase");
 
         declareAttackers();
+        // Se non ci sono attaccanti non si chiede di mettere nessun diffensore
         if(getAttacks().isEmpty() == false) {
             declareBlockers();
 
+            /**
+             * Attacker [x;y]
+             *   VS
+             * Defender 1 [x;y]
+             * Defender 2 [x;y]
+             *   ...
+             * Defender n [x;y]
+             **/
             System.out.println(current_player.get_name() + " VS " + current_adversary.get_name());
             for (Attack atk : AttackList.attacks) {
                 System.out.println("~~~~~~~o~~~~~~~o~~~~~~~o~~~~~~~");

@@ -77,6 +77,7 @@ public class Attack {
         while(actualDef != null && powerLeft > 0){
             // Calcolo del danno da infliggere al attuale difensore.
             atkToDeal = (powerLeft > actualDef.get_toughness() ? actualDef.get_toughness() : powerLeft);
+            powerLeft -= atkToDeal;
             // Incrementa l'attacco totale che l'attaccante riceverà.
             atkToReceive += (actualDef.get_power() > toughness ? toughness : actualDef.get_power());
 

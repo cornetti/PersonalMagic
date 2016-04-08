@@ -7,7 +7,7 @@ public class DefaultDrawPhase implements Phase {
     public void execute() {
         Player current_player = CardGame.instance.get_current_player();
         
-        System.out.println(current_player.get_name() + ": draw phase");
+        System.out.println("\n<-----O--- " + current_player.get_name() + ": draw phase ---O----->");
         
         CardGame.instance.get_triggers().trigger(Phases.DRAW_FILTER);
         current_player.draw();

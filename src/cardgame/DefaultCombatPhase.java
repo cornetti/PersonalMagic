@@ -15,16 +15,19 @@ public class DefaultCombatPhase implements Phase {
         Player current_player = CardGame.instance.get_current_player();
         Player current_adversary = CardGame.instance.get_current_adversary();
 
-        System.out.println(current_player.get_name() + ": combat phase");
+        System.out.println("\n<-----O--- " + current_player.get_name() + ": combat phase ---O----->");
 
         declareAttackers();
+
         // Se non ci sono attaccanti non si chiede di mettere nessun diffensore
         if(getAttacks().isEmpty() == false) {
             declareBlockers();
 
             /**
+             * Printing state of attacks before damage calculation.
              * Attacker [x;y]
              *   VS
+             * (Player z)
              * Defender 1 [x;y]
              * Defender 2 [x;y]
              *   ...
@@ -32,20 +35,21 @@ public class DefaultCombatPhase implements Phase {
              **/
             System.out.println(current_player.get_name() + " VS " + current_adversary.get_name());
             for (Attack atk : AttackList.attacks) {
-                System.out.println("~~~~~~~o~~~ Battle nr." + (++i) + " ~~~o~~~~~~~");
+                System.out.println("\n~~~~~~~o~~~ Battle nr." + (++i) + " ~~~o~~~~~~~");
                 Creature c = atk.getAttacker();
                 System.out.println(c.name() + "(" + c.getOwner().get_name() + ")" + " [" + c.get_power() + ";" + c.get_toughness() + "]");
                 System.out.println("\tVS");
                 if (atk.getDefenders().size() != 0) {
                     for (Creature dif : atk.getDefenders())
-                        System.out.println(dif.name() + "(" + dif.getOwner().get_name() + ")" + " [" + c.get_power() + ";" + c.get_toughness() + "]");
+                        System.out.println(dif.name() + "(" + dif.getOwner().get_name() + ")" + " [" + dif.get_power() + ";" + dif.get_toughness() + "]");
                 }else {
-                    System.out.println(current_adversary.get_name());
+                    System.out.println(current_adversary.get_name() + " (Life points left: " + current_adversary.get_life() + ")");
                 }
             }
             System.out.println("~~~~~~~o~~~~~~~o~~~~~~~o~~~~~~~");
 
         }
+
         CardGame.instance.get_triggers().trigger(Phases.COMBAT_FILTER);
 
         calculateDamages();
@@ -62,7 +66,6 @@ public class DefaultCombatPhase implements Phase {
         * */
     }
 
-        /**/
 
     //dal campo dichiaro quali mostri attaccare
     public void declareAttackers () {
@@ -106,14 +109,24 @@ public class DefaultCombatPhase implements Phase {
     }
 
     public void calculateDamages () {
-        int i = 0;
-        // dato che abbiamo registrato tutte le dichiarazioni di attacco e difesa
-        //  negli attack allora basta richiamare il resolve di ogni attack.
+        int i = 0; // Number of current battle
+        /**
+         * Dato che abbiamo registrato tutte le dichiarazioni di attacco e difesa
+         * negli Attack allora basta richiamare il resolve di ogni attack.
+         * Printing state of battles:
+         * ~~~ Battle nr.x ~~~
+         *  Creature i attacks creature j
+         *  ...
+         *  Creature j is destroyed
+         * ~~~ End of battle nr.x ~~~
+         **/
+        System.out.println("\n");
         for(Attack atk: AttackList.attacks) {
             System.out.println("~~~o~~~ Resolving Battle nr." + (++i) + " ~~~o~~~");
             atk.resolve();
             System.out.println("~~~o~~~ End of battle nr." + i + " ~~~o~~~\n");
         }
+        // Resets the AttackList, clearing every declaration of attack and defense
         AttackList.reset();
     }
 

@@ -16,7 +16,7 @@ public class SkipPhase implements Phase {
 
     public void execute() {
         Player current_player = CardGame.instance.get_current_player();
-        System.out.println(current_player.get_name() + ": skip " + phase_id.get_name() +" phase");
+        System.out.println("\n<-----O--- " + current_player.get_name() + ": skip " + phase_id.get_name() +" phase ---O----->");
         --skip_num;
         if (skip_num==0) current_player.remove_phase(phase_id,this);
     }

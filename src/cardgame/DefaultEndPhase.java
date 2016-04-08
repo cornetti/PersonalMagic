@@ -6,7 +6,7 @@ public class DefaultEndPhase implements Phase {
     public void execute() {
         Player current_player = CardGame.instance.get_current_player();
         
-        System.out.println(current_player.get_name() + ": end phase");
+        System.out.println("\n<-----O--- " + current_player.get_name() + ": end phase ---O----->");
         
         CardGame.instance.get_triggers().trigger(Phases.END_FILTER);
         

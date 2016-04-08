@@ -82,7 +82,8 @@ public class Player {
 
     
     void execute_turn() {
-        System.out.println(name + "'s turn");
+        System.out.println("\n~O-------------------------O~");
+        System.out.println("/~~~~ " + name + "'s turn ~~~~\\");
         Phase cur_phase;
         while ((cur_phase=next_phase())!=null) {
             cur_phase.execute();

@@ -12,7 +12,7 @@ public class DefaultMainPhase implements Phase {
 
 
 
-        System.out.println(current_player.get_name() + ": main phase");
+        System.out.println("\n<-----O--- " + current_player.get_name() + ": main phase ---O----->");
         System.out.println(current_player.get_name() + " life: "+current_player.get_life());
         
         CardGame.instance.get_triggers().trigger(Phases.MAIN_FILTER);
@@ -20,20 +20,22 @@ public class DefaultMainPhase implements Phase {
         
         // alternate in placing effect until both players pass
         int number_passes=0;
-        
-        if (!play_available_effect(current_player, true))
+
+        if (!play_available_effect(current_player, true)) {
             ++number_passes;
-        
+        }
+
         while (number_passes<2) {
             if (play_available_effect(CardGame.instance.get_player(response_player_idx),false))
                 number_passes=0;
             else ++number_passes;
-            
+
             response_player_idx = (response_player_idx+1)%2;
         }
-        
+
         CardGame.instance.get_stack().resolve();
     }
+
     
     
     // looks for all playable effects from cards in hand and creatures in play

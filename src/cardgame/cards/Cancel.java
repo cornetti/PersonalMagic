@@ -17,12 +17,6 @@ public class Cancel implements Card {
         }
 
         @Override
-        public boolean play(){
-            setTarget();
-            return super.play();
-        }
-
-        @Override
         public void setTarget() {
             int index = 0;
             System.out.println("Possibili effetti target nello stack");

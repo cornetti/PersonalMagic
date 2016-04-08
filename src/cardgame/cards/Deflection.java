@@ -21,11 +21,6 @@ public class Deflection implements Card {
         }
 
 
-        @Override
-        public boolean play() {
-            setTarget();
-            return super.play();
-        }
 
         @Override
         public void setTarget(){
@@ -51,7 +46,6 @@ public class Deflection implements Card {
 
         @Override
         public void resolve() {
-            //TODO carta assai cancara
 
             if (target.getPlayed() == true) {
                     target_of_target = target.getTarget();

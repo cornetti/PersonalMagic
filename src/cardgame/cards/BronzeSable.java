@@ -45,7 +45,9 @@ public class BronzeSable implements Card {
             toughness = 1;
 
             all_effects.add(new Effect() {
-                public boolean play() {                             /*errore, sta carta non ha effetto, così ha l'effetto di tap:non fa niente*/
+                public boolean play() {
+                    //errore, sta carta non ha effetto, così ha l'effetto di tap:non fa niente
+                    //in realtà reflexologist funzia uguale e l'ha fatta il prof
                     CardGame.instance.get_stack().add(this);
                     return tap();
                 }

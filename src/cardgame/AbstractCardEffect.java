@@ -26,6 +26,7 @@ public abstract class AbstractCardEffect extends AbstractEffect {
     public boolean play() {
         owner.get_hand().remove(card);
         played = true;
+        setTarget();
         return super.play();
     }
 

@@ -20,12 +20,6 @@ public class VolcanicHammer implements Card {
         }
 
         @Override
-        public boolean play(){
-            setTarget();
-            return super.play();
-        }
-
-        @Override
         public void setTarget() {
             System.out.println("possibili target in campo:");
             int index = 0;

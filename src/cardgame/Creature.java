@@ -12,7 +12,7 @@ public interface Creature {
     void defend(Creature c);
     int getDamage_left();
     void inflict_damage(int dmg);
-    void weaken(int dmg);
+    void weaken(int powerPenality, int toughnessPenality);
     void reset_damage();
     int get_power();
     int get_toughness();

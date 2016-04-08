@@ -13,11 +13,6 @@ public class Fatigue implements Card {
         }
 
         @Override
-        public boolean play() {
-            return super.play();
-        }
-
-        @Override
         public void setTarget() {
 
         }

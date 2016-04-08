@@ -12,7 +12,6 @@ public class Reflexologist implements Card{
 
         @Override
         public void setTarget() {
-
         }
 
         @Override

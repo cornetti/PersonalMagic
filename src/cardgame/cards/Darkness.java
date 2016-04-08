@@ -12,10 +12,6 @@ public class Darkness implements Card {
             super(p,c);
         }
 
-        @Override
-        public boolean play() {
-            return super.play();
-        }
 
         @Override
         public void setTarget() {

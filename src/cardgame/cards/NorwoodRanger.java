@@ -17,7 +17,6 @@ public class NorwoodRanger implements Card {
 
         @Override
         public void setTarget() {
-
         }
 
         @Override

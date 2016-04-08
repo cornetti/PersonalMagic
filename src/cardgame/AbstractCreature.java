@@ -43,6 +43,8 @@ public abstract class AbstractCreature implements Creature {
     public void attack() {
         Attack atk = new Attack(this, CardGame.instance.get_current_adversary());
         AttackList.add(atk);
+        //TODO finita?
+
         // Daffinireddopo
     } // to do in assignment 2
 
@@ -73,8 +75,9 @@ public abstract class AbstractCreature implements Creature {
     }
 
     @Override
-    public void weaken(int dmg) {
-        this.power = power - dmg;
+    public void weaken(int powerPenality, int toughnessPenality) {
+        power -= powerPenality;
+        toughness -= toughnessPenality;
     }
 
     public void reset_damage() { damage_left = get_toughness(); }

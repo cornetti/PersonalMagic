@@ -12,14 +12,9 @@ public class BoilingEarth implements Card {
             super(p,c);
         }
 
-        @Override
-        public boolean play() {
-            return super.play();
-        }
 
         @Override
         public void setTarget() {
-            System.out.println("non fa niente");
         }
 
         @Override

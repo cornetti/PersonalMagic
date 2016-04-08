@@ -17,7 +17,6 @@ public class BenevolentAncestor implements Card {
 
         @Override
         public void setTarget() {
-
         }
 
         @Override
@@ -32,8 +31,7 @@ public class BenevolentAncestor implements Card {
 
         @Override
         public void resolve() {
-            //TODO eliminare il primo attacco
-            AttackList.remove(0);
+
         }
     }
 
@@ -57,8 +55,9 @@ public class BenevolentAncestor implements Card {
                                      return tap();
                                  }
 
-                                 public void resolve() {}
-                                    //TODO: previene il danno
+                                 public void resolve() {
+                                     AttackList.remove(0);
+                                 }
                                  public String toString()
                                  { return "Benevolent Ancestor"; }
                              }
@@ -66,6 +65,7 @@ public class BenevolentAncestor implements Card {
         }
 
         public String name() { return "Benevolent Ancestor"; }
+
 
         public int get_power() { return power; }
         public int get_toughness() { return toughness; }

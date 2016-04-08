@@ -14,7 +14,6 @@ public class WorldAtWar implements Card {
 
         @Override
         public void setTarget() {
-
         }
 
         @Override

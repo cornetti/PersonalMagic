@@ -19,7 +19,6 @@ public class SavorTheMoment implements Card {
 
         @Override
         public void setTarget() {
-
         }
 
         @Override

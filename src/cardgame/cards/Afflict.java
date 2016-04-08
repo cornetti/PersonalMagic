@@ -18,11 +18,6 @@ public class Afflict implements Card {
         }
 
 
-        @Override
-        public boolean play(){
-            setTarget();
-            return super.play();
-        }
 
         @Override
         public void setTarget(){
@@ -47,13 +42,12 @@ public class Afflict implements Card {
 
         @Override
         public void resolve() {
-            target.inflict_damage(1);
-            target.weaken(1);
+            target.weaken(1,1);
 
             CardGame.instance.get_triggers().register(16, new TriggerAction() {
                 @Override
                 public void execute() {
-                    target.weaken(-1);
+                    target.weaken(-1,-1);
                 }
             });
 

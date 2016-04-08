@@ -57,10 +57,6 @@ public abstract class AbstractCreature implements Creature {
 
     public void receive(Attack atk){}
 
-    public void calculate_damage(){
-
-    }
-
     public int getDamage_left(){
         return this.damage_left;
     }
@@ -78,7 +74,10 @@ public abstract class AbstractCreature implements Creature {
     public void weaken(int powerPenality, int toughnessPenality) {
         power -= powerPenality;
         toughness -= toughnessPenality;
-        if (toughness<0) owner.destroy(this);
+        if (toughness<=0){
+            System.out.println(name() + " (" + owner.get_name() + ") is destroyed!");
+            owner.destroy(this);
+        }
     }
 
     public void reset_damage() { damage_left = get_toughness(); }

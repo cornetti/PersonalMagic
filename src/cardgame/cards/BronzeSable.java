@@ -61,6 +61,11 @@ public class BronzeSable implements Card {
             });
         }
 
+        @Override
+        public boolean hasEffect() {
+            return false;
+        }
+
         public String name() { return "Bronze Sable"; }
 
         public int get_power(){return this.power;}

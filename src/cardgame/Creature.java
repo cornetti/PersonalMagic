@@ -25,4 +25,6 @@ public interface Creature {
     List<Effect> avaliable_effects();
 
     void receive(Attack dmg);
+
+    boolean hasEffect();
 }

@@ -167,11 +167,13 @@ public class DefaultCombatPhase implements Phase {
         }
         //...creature effects last
         for ( Creature c:active_player.get_creatures()) {
-            for (Effect e:c.avaliable_effects()) {
-                if (!c.isTapped())
-                    available_effects.add(e);
-                    System.out.println(Integer.toString(i+1)+") " + c.name() + " ["+ e + "]" );
-                i++;
+            if (c.hasEffect()){
+                for (Effect e:c.avaliable_effects()) {
+                    if(!c.isTapped())
+                        available_effects.add(e);
+                    System.out.println(Integer.toString(i + 1) + ") " + c.name() + " [" + e + "]");
+                    i++;
+                }
             }
         }
         //get user choice and play it

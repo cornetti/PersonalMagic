@@ -42,7 +42,12 @@ public class Reflexologist implements Card{
                                 }
                 ); 
         }
-        
+
+        @Override
+        public boolean hasEffect() {
+            return false;
+        }
+
         public String name() { return "Reflexologist"; }
         
         public int get_power() { return this.power; }

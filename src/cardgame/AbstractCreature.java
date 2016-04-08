@@ -85,5 +85,7 @@ public abstract class AbstractCreature implements Creature {
     public int getPower(){ return this.power;}
 
     public int getToughness(){ return this.toughness;}
-    
+
+    @Override
+    public abstract boolean hasEffect();
 }

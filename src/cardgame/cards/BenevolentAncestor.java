@@ -77,6 +77,11 @@ public class BenevolentAncestor implements Card {
             System.out.println(name() + " cannot attack");
         }
 
+        @Override
+        public boolean hasEffect() {
+            return true;
+        }
+
         public String name() { return "Benevolent Ancestor"; }
 
 

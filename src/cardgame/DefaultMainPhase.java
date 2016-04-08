@@ -57,11 +57,13 @@ public class DefaultMainPhase implements Phase {
         
         //...creature effects last
         for ( Creature c:active_player.get_creatures()) {
-            for (Effect e:c.avaliable_effects()) {
-                available_effects.add(e);
-                System.out.println(Integer.toString(i+1)+") " + c.name() + 
-                    " ["+ e + "]" );
-                ++i;
+            if (c.hasEffect()) {
+                for (Effect e : c.avaliable_effects()) {
+                    available_effects.add(e);
+                    System.out.println(Integer.toString(i + 1) + ") " + c.name() +
+                            " [" + e + "]");
+                    ++i;
+                }
             }
         }
         

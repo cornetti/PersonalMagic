@@ -58,7 +58,12 @@ public class NorwoodRanger implements Card {
             );
         }
 
-        public String name() { return "Norwood Ranger"; }
+           @Override
+           public boolean hasEffect() {
+               return false;
+           }
+
+           public String name() { return "Norwood Ranger"; }
 
         public int get_power() { return this.power; }
         public int get_toughness() { return this.toughness; }

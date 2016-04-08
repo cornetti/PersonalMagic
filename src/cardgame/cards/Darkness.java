@@ -28,6 +28,7 @@ public class Darkness implements Card {
                 @Override
                 public void execute() {
                     AttackList.reset();
+                    System.out.println("canceled all combat damage");
                 }
             });
         }

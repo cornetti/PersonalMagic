@@ -4,9 +4,8 @@ import cardgame.*;
 
 import java.util.Scanner;
 
-/**
- * Created by mryolo on 16/03/16.
- */
+
+//works
 public class Cancel implements Card {
 
     private class CancelEffect extends AbstractCardEffect{

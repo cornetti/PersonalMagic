@@ -156,7 +156,7 @@ public class DefaultCombatPhase implements Phase {
         Scanner reader = CardGame.instance.get_scanner();
 
         //...cards first
-        System.out.println(active_player.get_name() + " select card/effect to play, 0 to pass");
+        System.out.println(active_player.get_name() + " select effect/istant to play, 0 to pass");
         int i=0;
         for( Card c: active_player.get_hand() ) {
             if ( c.isInstant() ) {

@@ -9,11 +9,13 @@ public class DefaultCombatPhase implements Phase {
 
 
     public ArrayList<Attack> getAttacks(){ return AttackList.attacks;}
+    Player current_player;
+    Player current_adversary;
 
     public void execute() {
         int i = 0;
-        Player current_player = CardGame.instance.get_current_player();
-        Player current_adversary = CardGame.instance.get_current_adversary();
+        current_player = CardGame.instance.get_current_player();
+        current_adversary = CardGame.instance.get_current_adversary();
 
         System.out.println("\n<-----O--- " + current_player.get_name() + ": combat phase ---O----->");
 
@@ -56,7 +58,7 @@ public class DefaultCombatPhase implements Phase {
 
         // L'ho TODATO
 
-        /*
+        /**
         * Dichiara attaccanti per il giocatore attivo:
         *   attaccante decide chi attacca
         * Dichiara difensori per l'altro giocatore:
@@ -68,7 +70,7 @@ public class DefaultCombatPhase implements Phase {
 
 
     //dal campo dichiaro quali mostri attaccare
-    public void declareAttackers () {
+    private void declareAttackers () {
         boolean end = false;
         int index = 0;
         Scanner in = new Scanner(System.in);
@@ -79,9 +81,11 @@ public class DefaultCombatPhase implements Phase {
                     c.attack();
             }
         }
+        if(!getAttacks().isEmpty())
+            respond(current_adversary);
     }
 
-    public void declareBlockers () {
+    private void declareBlockers () {
         boolean end = false;
         int index;
         boolean assigned = false; // Serve ad evitare che con lo stesso difensore difenda più attacchi.
@@ -106,9 +110,11 @@ public class DefaultCombatPhase implements Phase {
                     }
                 }
             }
+        if (!getAttacks().isEmpty())
+            respond(current_player);
     }
 
-    public void calculateDamages () {
+    private void calculateDamages () {
         int i = 0; // Number of current battle
         /**
          * Dato che abbiamo registrato tutte le dichiarazioni di attacco e difesa
@@ -131,6 +137,48 @@ public class DefaultCombatPhase implements Phase {
     }
 
 
-    
+    private void respond(Player active_player){
+        int passes = 0;
+
+        while (passes < 2){
+            if (!playIstants(active_player)) passes++;
+            if (active_player == current_adversary)
+                active_player = current_player;
+            else
+                active_player = current_adversary;
+        }
+    }
+
+
+    private boolean playIstants(Player active_player){
+        ArrayList<Effect> available_effects = new ArrayList<>();
+        Scanner reader = CardGame.instance.get_scanner();
+
+        //...cards first
+        System.out.println(active_player.get_name() + " select card/effect to play, 0 to pass");
+        int i=0;
+        for( Card c: active_player.get_hand() ) {
+            if ( c.isInstant() ) {
+                available_effects.add(c.get_effect(active_player));
+                System.out.println(Integer.toString(i+1)+") "+c);
+                i++;
+            }
+        }
+        //...creature effects last
+        for ( Creature c:active_player.get_creatures()) {
+            for (Effect e:c.avaliable_effects()) {
+                if (!c.isTapped())
+                    available_effects.add(e);
+                    System.out.println(Integer.toString(i+1)+") " + c.name() + " ["+ e + "]" );
+                i++;
+            }
+        }
+        //get user choice and play it
+        int idx= reader.nextInt()-1;
+        if (idx<0 || idx>=available_effects.size()) return false;
+        available_effects.get(idx).play();
+        return true;
+    }
+
 }
 

@@ -15,10 +15,7 @@ public class AttackList {
         attacks.remove(i);
     }
     public boolean isEmpty() {
-        if(attacks == null)
-            return true;
-        else
-            return false;
+        return attacks.isEmpty();
     }
     public static void reset(){
         attacks = new ArrayList<>();

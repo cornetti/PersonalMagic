@@ -21,13 +21,13 @@ public class CardGame {
         ArrayList<Card> deck = new ArrayList<Card>();
         //for (int i=0; i<2; i++) deck.add(new Homeopathy());
         //for (int i=0; i!=5; ++i) deck.add(new Reflexologist());
-        //for (int i=0;i<2; i++) deck.add(new Cancel());
-        for (int i=0;i<20; i++) deck.add(new NorwoodRanger());
-        for (int i=0;i<20; i++) deck.add(new BronzeSable());
+        for (int i=0;i<2; i++) deck.add(new Cancel());
+        for (int i=0;i<5; i++) deck.add(new NorwoodRanger());
+        for (int i=0;i<5; i++) deck.add(new BronzeSable());
         //for (int i=0;i<2; i++) deck.add(new Afflict());
         //for (int i=0;i<2; i++) deck.add(new AggressiveUrge());
         //for (int i=0;i<2; i++) deck.add(new BoilingEarth());
-        //for (int i=0;i<2; i++) deck.add(new Darkness());
+        for (int i=0;i<2; i++) deck.add(new Darkness());
         //for (int i=0;i<4; i++) deck.add(new DayOfJudgement());
         //for (int i=0;i<2; i++) deck.add(new Deflection());
         //for (int i=0;i<2; i++) deck.add(new FalsePeace());

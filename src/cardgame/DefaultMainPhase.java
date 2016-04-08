@@ -10,14 +10,12 @@ public class DefaultMainPhase implements Phase {
         Player current_player = CardGame.instance.get_current_player();
         int response_player_idx = (CardGame.instance.get_player(0) == current_player)?1:0;
 
-
-
         System.out.println("\n<-----O--- " + current_player.get_name() + ": main phase ---O----->");
         System.out.println(current_player.get_name() + " life: "+current_player.get_life());
         
         CardGame.instance.get_triggers().trigger(Phases.MAIN_FILTER);
-        
-        
+
+
         // alternate in placing effect until both players pass
         int number_passes=0;
 

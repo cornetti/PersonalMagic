@@ -2,7 +2,6 @@
 package cardgame;
 
 
-import java.util.Scanner;
 
 // utility class implementing code common to all effects linked with cards:
 // remove card from hand and place the effect on the stack on play

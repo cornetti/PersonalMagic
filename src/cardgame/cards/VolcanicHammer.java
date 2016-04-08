@@ -4,9 +4,7 @@ import cardgame.*;
 
 import java.util.Scanner;
 
-/**
- * Created by Kotono on 16/03/2016.
- */
+//works
 public class VolcanicHammer implements Card {
 
     private class VolcanicHammerEffect extends AbstractCardEffect {

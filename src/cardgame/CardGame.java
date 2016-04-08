@@ -34,7 +34,7 @@ public class CardGame {
         //for (int i=0;i<2; i++) deck.add(new FalsePeace());
         //for (int i=0;i<2; i++) deck.add(new Fatigue());
         //for (int i=0;i<2; i++) deck.add(new SavorTheMoment());
-        for (int i=0;i<2; i++) deck.add(new VolcanicHammer());
+        //for (int i=0;i<2; i++) deck.add(new VolcanicHammer());
         //for (int i=0;i<2; i++) deck.add(new WorldAtWar());
 
 

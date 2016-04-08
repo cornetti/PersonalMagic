@@ -45,7 +45,7 @@ public class Player {
     public void inflict_damage(int pts) {
         life -= pts;
         System.out.println(get_name() + " received " + pts + " points of damage.");
-        System.out.println(get_name() + " has " + get_life() + " points of life left.");
+        System.out.println(get_name() + " has " + get_life() + " life points left.");
         if (life <=0) lose("received fatal damage");
     }
     

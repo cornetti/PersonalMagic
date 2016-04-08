@@ -18,7 +18,7 @@ public class DefaultMainPhase implements Phase {
         CardGame.instance.get_triggers().trigger(Phases.MAIN_FILTER);
         
         
-        // alternate in placing effect until bith players pass
+        // alternate in placing effect until both players pass
         int number_passes=0;
         
         if (!play_available_effect(current_player, true))

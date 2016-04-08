@@ -90,8 +90,10 @@ public class DefaultCombatPhase implements Phase {
                     if (in.next().equals("y")) {
                         for (Attack atk : AttackList.attacks) {
                             System.out.println("Vuoi difendere da: " + atk.getAttacker().name() + "?\n y / n");
-                            if (in.next().equals("y"))
+                            if (in.next().equals("y")) {
                                 c.defend(atk.getAttacker());
+                                return;
+                            }
                         }
                     }
                 }

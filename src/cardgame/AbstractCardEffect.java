@@ -18,9 +18,9 @@ public abstract class AbstractCardEffect extends AbstractEffect {
     protected AbstractCardEffect target;
     
     protected AbstractCardEffect(Player p, Card c) {
-        owner=p;
-        card=c;
-        opponent = CardGame.instance.get_current_adversary();
+        this.owner=p;
+        this.card=c;
+        this.opponent = CardGame.instance.get_current_adversary();
     }
     
     public boolean play() {

@@ -71,7 +71,7 @@ public class Attack {
         Creature old;
 
         if(actualDef == null) {
-            System.out.println(attacker.name() + " (" + attacker.getOwner() + ") attacks directly " + adversary.get_name());
+            System.out.println(attacker.name() + " (" + attacker.getOwner().get_name() + ") attacks directly " + adversary.get_name());
             adversary.inflict_damage(powerLeft);
         }
         while(actualDef != null && powerLeft > 0){

@@ -50,7 +50,7 @@ public abstract class AbstractCreature implements Creature {
         ArrayList<Attack> lst = AttackList.attacks;
         for(Attack atk: lst)
             if(atk.getAttacker().equals(c))
-                atk.addDefender(c);
+                atk.addDefender(this);
     } // to do in assignment 2
 
     public void receive(Attack atk){}

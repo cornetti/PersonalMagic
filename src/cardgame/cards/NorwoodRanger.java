@@ -61,8 +61,6 @@ public class NorwoodRanger implements Card {
 
         public String name() { return "Norwood Ranger"; }
 
-        public void attack() {}
-        public void defend(Creature c) {}
         public int get_power() { return this.power; }
         public int get_toughness() { return this.toughness; }
 

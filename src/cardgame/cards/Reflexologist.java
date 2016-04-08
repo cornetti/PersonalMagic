@@ -47,8 +47,6 @@ public class Reflexologist implements Card{
         
         public String name() { return "Reflexologist"; }
         
-        public void attack() {}
-        public void defend(Creature c) {}
         public int get_power() { return this.power; }
         public int get_toughness() { return this.toughness; }
 

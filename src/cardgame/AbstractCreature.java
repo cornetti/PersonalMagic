@@ -22,7 +22,7 @@ public abstract class AbstractCreature implements Creature {
             return false;
         }
 
-        System.out.println("tapping creature " + name());
+        System.out.println("tapping creature " + name() + "(" + getOwner().get_name() + ")");
         is_tapped=true;
         return true;
     }
@@ -33,7 +33,7 @@ public abstract class AbstractCreature implements Creature {
             return false;
         }
 
-        System.out.println("untapping creature " + name());
+        System.out.println("untapping creature " + name() + "(" + getOwner().get_name() + ")");
         is_tapped=false;
         return true;
     }

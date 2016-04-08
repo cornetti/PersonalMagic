@@ -67,8 +67,6 @@ public class BenevolentAncestor implements Card {
 
         public String name() { return "Benevolent Ancestor"; }
 
-        public void attack() {}
-        public void defend(Creature c) {}
         public int get_power() { return power; }
         public int get_toughness() { return toughness; }
 

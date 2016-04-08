@@ -12,7 +12,7 @@ public class AttackList {
         attacks.add(a);
     }
     public static void remove(int i) {
-        attacks.remove(i);
+        attacks.get(i).setDmg(0);
     }
     public boolean isEmpty() {
         return attacks.isEmpty();

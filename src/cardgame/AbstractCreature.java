@@ -78,6 +78,7 @@ public abstract class AbstractCreature implements Creature {
     public void weaken(int powerPenality, int toughnessPenality) {
         power -= powerPenality;
         toughness -= toughnessPenality;
+        if (toughness<0) owner.destroy(this);
     }
 
     public void reset_damage() { damage_left = get_toughness(); }

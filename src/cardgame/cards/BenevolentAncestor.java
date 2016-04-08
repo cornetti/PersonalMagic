@@ -4,6 +4,7 @@ import cardgame.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by Kotono on 16/03/2016.
@@ -16,8 +17,7 @@ public class BenevolentAncestor implements Card {
         }
 
         @Override
-        public void setTarget() {
-        }
+        public void setTarget() {}
 
         @Override
         protected Creature create_creature() {
@@ -26,13 +26,9 @@ public class BenevolentAncestor implements Card {
 
         @Override
         public boolean hasTarget() {
-            return false; //forse
+            return false;
         }
 
-        @Override
-        public void resolve() {
-
-        }
     }
 
     @Override
@@ -50,16 +46,29 @@ public class BenevolentAncestor implements Card {
             power = 0;
             toughness = 4;
             all_effects.add( new Effect() {
-                                 public boolean play() {
-                                     CardGame.instance.get_stack().add(this);
-                                     return tap();
-                                 }
+                                private int targetIndex;
+                                public boolean play() {
+                                    CardGame.instance.get_stack().add(this);
+                                    return tap();
+                                }
 
-                                 public void resolve() {
-                                     AttackList.remove(0);
+                                public void resolve() {
+                                     AttackList.remove(targetIndex);
                                  }
-                                 public String toString()
-                                 { return "Benevolent Ancestor"; }
+                                public String toString()
+                                { return "Benevolent Ancestor"; }
+
+                                public void setTarget(){
+                                    int index = 0;
+                                    System.out.println("possible attacks to block");
+                                    Scanner reader = new Scanner(System.in);
+                                    for (Attack a : AttackList.attacks){
+                                        System.out.println(index++ + ". from: " + a.getAttacker().name() +" amount: "+ a.getAttacker().get_power());
+                                    }
+                                    System.out.println("insert index of target attack");
+                                    targetIndex = reader.nextInt();
+                                }
+
                              }
             );
         }

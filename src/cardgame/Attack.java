@@ -38,6 +38,7 @@ public class Attack {
     /* Metodo bellissimo che però non ci serve più :'(
 
     // Restituisce il prossimo defender da attaccare.
+    //Dovevamo usarlo per fare in modo che il prossimo difensore difendesse l'attacco che avanzava :'(
     public Creature getNextDefender(){
         if(!defenders.isEmpty())
             return defenders.get(0);
@@ -57,6 +58,8 @@ public class Attack {
         }
         return null;
     } */
+
+
 
     public void resolve(){
         // atkToDeal: l'attacco che l'attaccante infliggerà al difensore (giocatore)

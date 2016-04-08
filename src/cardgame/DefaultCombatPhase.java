@@ -20,11 +20,12 @@ public class DefaultCombatPhase implements Phase {
         System.out.println("\n<-----O--- " + current_player.get_name() + ": combat phase ---O----->");
 
         declareAttackers();
+        CardGame.instance.get_stack().resolve();
 
         // Se non ci sono attaccanti non si chiede di mettere nessun diffensore
         if(getAttacks().isEmpty() == false) {
             declareBlockers();
-
+            CardGame.instance.get_stack().resolve();
             /**
              * Printing state of attacks before damage calculation.
              * Attacker [x;y]

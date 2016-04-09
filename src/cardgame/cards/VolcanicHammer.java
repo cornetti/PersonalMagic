@@ -18,7 +18,7 @@ public class VolcanicHammer implements Card {
         }
 
         @Override
-        public void setTarget() {
+        public boolean setTarget() {
             target = null;
             target2 = null;
             System.out.println("possibili target in campo:");
@@ -27,13 +27,18 @@ public class VolcanicHammer implements Card {
                 System.out.println(index +".  "+ c.name() + ": " + c.get_power() + "/" + c.get_toughness());
                 ++index;
             }
-            System.out.println("inserire l'indice del target (-1 per colpire il giocatore)");
+            System.out.println("inserire l'indice del target (-1 per colpire il giocatore) o 0 per annullare");
             Scanner scanner = new Scanner(System.in);
-            index = scanner.nextInt();
+            index = scanner.nextInt()-1;
             if (index >= 0)
                 target = (opponent.get_creatures().get(index));
-            else
+            else if (index == -2)
                 target2 = opponent;
+            else {
+                System.out.println("aborted");
+                return false;
+            }
+            return true;
         }
 
         @Override

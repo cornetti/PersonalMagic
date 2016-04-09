@@ -18,8 +18,7 @@ public class SavorTheMoment implements Card {
         }
 
         @Override
-        public void setTarget() {
-        }
+        public boolean setTarget() {return false; }
 
         @Override
         public boolean hasTarget() {
@@ -28,11 +27,16 @@ public class SavorTheMoment implements Card {
 
         @Override
         public void resolve() {
-            //TODO vedere se va bene
-            owner.set_phase(Phases.DRAW, new DefaultDrawPhase());
-            owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
-            owner.set_phase(Phases.MAIN, new DefaultMainPhase());
-            owner.set_phase(Phases.END, new DefaultEndPhase());
+            CardGame.instance.get_triggers().register(16, new TriggerAction() {
+                @Override
+                public void execute() {
+                    System.out.println("taking the extra turn");
+
+                    owner.set_phase(Phases.NULL, new SkipPhase(Phases.UNTAP));
+
+                }
+            });
+            System.out.println(owner.get_name() + " will take an extra turn but he won't untap his creatures");
         }
     }
 

@@ -13,8 +13,7 @@ public class WorldAtWar implements Card {
         }
 
         @Override
-        public void setTarget() {
-        }
+        public boolean setTarget() {return false; }
 
         @Override
         public boolean hasTarget() {
@@ -23,7 +22,7 @@ public class WorldAtWar implements Card {
 
         @Override
         public void resolve() {
-            //TODO vedere se va bene
+            //TODO non va un cazzo bene
             owner.set_phase(Phases.UNTAP, new DefaultUntapPhase());
             owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
         }

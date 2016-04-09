@@ -11,8 +11,8 @@ public class FalsePeace implements Card {
         }
 
         @Override
-        public void setTarget() {
-
+        public boolean setTarget() {
+            return false;
         }
 
         @Override

@@ -43,9 +43,6 @@ public abstract class AbstractCreature implements Creature {
     public void attack() {
         Attack atk = new Attack(this, CardGame.instance.get_current_adversary());
         AttackList.add(atk);
-        //TODO finita?
-
-        // Daffinireddopo
     } // to do in assignment 2
 
     public void defend(Creature c) {

@@ -15,7 +15,9 @@ public class BenevolentAncestor implements Card {
         }
 
         @Override
-        public void setTarget() {}
+        public boolean setTarget() {
+            return false;
+        }
 
         @Override
         protected Creature create_creature() {
@@ -45,9 +47,11 @@ public class BenevolentAncestor implements Card {
             all_effects.add( new Effect() {
                                 private int targetIndex;
                                 public boolean play() {
-                                    setTarget();
-                                    CardGame.instance.get_stack().add(this);
-                                    return tap();
+                                    if (setTarget()) {
+                                        CardGame.instance.get_stack().add(this);
+                                        return tap();
+                                    }
+                                    else return false;
                                 }
 
                                 public void resolve() {
@@ -56,15 +60,19 @@ public class BenevolentAncestor implements Card {
                                 public String toString()
                                 { return "Benevolent Ancestor"; }
 
-                                public void setTarget(){
+                                public boolean setTarget(){
                                     int index = 0;
                                     System.out.println("possible attacks to block");
                                     Scanner reader = new Scanner(System.in);
                                     for (Attack a : AttackList.attacks){
-                                        System.out.println(index++ + ". from: " + a.getAttacker().name() +" amount: "+ a.getAttacker().get_power());
+                                        System.out.println(++index + ". from: " + a.getAttacker().name() +" amount: "+ a.getAttacker().get_power());
                                     }
-                                    System.out.println("insert index of target attack");
-                                    targetIndex = reader.nextInt();
+                                    System.out.println("insert index of target attack or 0 for abort");
+                                    if ((targetIndex = reader.nextInt()-1)>0) return true;
+                                    else{
+                                        System.out.println("aborted");
+                                        return false;
+                                    }
                                 }
 
                              }

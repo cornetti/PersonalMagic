@@ -79,7 +79,7 @@ public class Attack {
             // toughness: l'attacco del attaccante, decrementerà dopo gli attacchi inflitti
             int atkToDeal, atkToReceive = 0;
             int toughness = attacker.get_toughness();
-            powerLeft = attacker.get_power();
+            powerLeft = attacker.get_power(); //va bene fin là (esempio le carte che dimezzano gli attacchi non funzionerebbero)
 
             // Il defender contro il quale sta combattendo attualmente
             // Se l'attaccante attuale non ha nessun defender allora attacca diretamente.

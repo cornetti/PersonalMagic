@@ -108,6 +108,8 @@ public class Attack {
             attacker.tap();
             if(atkToReceive > 0)
                 attacker.inflict_damage(atkToReceive);
+        }else {
+            System.out.print("attack cancelled");
         }
     }
 }

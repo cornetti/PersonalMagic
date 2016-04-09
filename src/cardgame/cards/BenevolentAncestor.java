@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Created by Kotono on 16/03/2016.
- */
+//works
 public class BenevolentAncestor implements Card {
 
     private class BenevolentAncestorEffect extends AbstractCreatureCardEffect {

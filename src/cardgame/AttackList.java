@@ -11,8 +11,8 @@ public class AttackList {
     public static void add(Attack a){
         attacks.add(a);
     }
-    public static void remove(int i) {
-        attacks.get(i).setDmg(0);
+    public static void cancel(int i) {
+        attacks.get(i).cancel();
     }
     public boolean isEmpty() {
         return attacks.isEmpty();
@@ -20,4 +20,5 @@ public class AttackList {
     public static void reset(){
         attacks = new ArrayList<>();
     }
+
 }

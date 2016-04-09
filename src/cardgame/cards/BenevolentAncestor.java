@@ -47,12 +47,13 @@ public class BenevolentAncestor implements Card {
             all_effects.add( new Effect() {
                                 private int targetIndex;
                                 public boolean play() {
+                                    setTarget();
                                     CardGame.instance.get_stack().add(this);
                                     return tap();
                                 }
 
                                 public void resolve() {
-                                     AttackList.remove(targetIndex);
+                                     AttackList.cancel(targetIndex);
                                  }
                                 public String toString()
                                 { return "Benevolent Ancestor"; }

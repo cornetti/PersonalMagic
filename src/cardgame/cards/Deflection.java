@@ -35,6 +35,8 @@ public class Deflection implements Card {
             Scanner in = new Scanner(System.in);
             index = in.nextInt();
             target = (AbstractCardEffect) CardGame.instance.get_stack().get(index);
+            target_of_target = target.getTarget();
+            target_of_target.setTarget();
         }
 
 
@@ -46,16 +48,7 @@ public class Deflection implements Card {
 
         @Override
         public void resolve() {
-
-            if (target.getPlayed() == true) {
-                    target_of_target = target.getTarget();
-                    target_of_target.setTarget();
-            }
-
-
-
-
-
+        //    if (target.getPlayed()) {}
         }
     }
 

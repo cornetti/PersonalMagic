@@ -2,7 +2,7 @@ package cardgame.cards;
 
 import cardgame.*;
 
-//works
+
 public class Darkness implements Card {
 
     private class DarknessEffect extends AbstractCardEffect {
@@ -25,7 +25,9 @@ public class Darkness implements Card {
             CardGame.instance.get_triggers().register(4, new TriggerAction() {
                 @Override
                 public void execute() {
-                    AttackList.reset();
+                    for (Attack a : AttackList.attacks) {
+                        a.cancel();
+                    }
                     System.out.println("canceled all combat damage");
                 }
             });

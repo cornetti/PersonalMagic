@@ -109,7 +109,7 @@ public class Attack {
             if(atkToReceive > 0)
                 attacker.inflict_damage(atkToReceive);
         }else {
-            System.out.print("attack cancelled");
+            System.out.println("attack cancelled");
         }
     }
 }

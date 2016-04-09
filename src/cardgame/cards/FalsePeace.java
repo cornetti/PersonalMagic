@@ -21,9 +21,9 @@ public class FalsePeace implements Card {
         }
 
         @Override
-        public void resolve()
-        { //TODO vedere se va bene
-          opponent.set_phase(Phases.COMBAT,new SkipPhase(Phases.COMBAT));
+        public void resolve() {
+            opponent.set_phase(Phases.COMBAT,new SkipPhase(Phases.COMBAT));
+            System.out.println("next turn " + opponent.get_name() + " will skip his combat phase");
         }
     }
 

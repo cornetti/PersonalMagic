@@ -24,8 +24,9 @@ public class Fatigue implements Card {
 
         @Override
         public void resolve()
-        {   //TODO vedere se va bene
+        {
             opponent.set_phase(Phases.DRAW,new SkipPhase(Phases.DRAW));
+            System.out.println("next turn " + opponent.get_name() + " will not draw");
         }
     }
 

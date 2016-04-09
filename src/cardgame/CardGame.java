@@ -19,14 +19,14 @@ public class CardGame {
 
         //create decks
         ArrayList<Card> deck = new ArrayList<Card>();
-        //for (int i=0; i<2; i++) deck.add(new Homeopathy());
-        //for (int i=0; i!=5; ++i) deck.add(new Reflexologist());
-        //for (int i=0;i<2; i++) deck.add(new Cancel());
-        //for (int i=0;i<5; i++) deck.add(new NorwoodRanger());
-        for (int i=0;i<5; i++) deck.add(new BronzeSable());
-        for (int i=0;i<2; i++) deck.add(new Afflict());
-        //for (int i=0;i<2; i++) deck.add(new AggressiveUrge());
-        for (int i=0;i<2; i++) deck.add(new BenevolentAncestor());
+        //for (int i=0; i<2; i++) deck.add(new Homeopathy());          //tested
+        //for (int i=0; i!=5; ++i) deck.add(new Reflexologist());      //tested
+        //for (int i=0;i<2; i++) deck.add(new Cancel());               //tested
+        //for (int i=0;i<5; i++) deck.add(new NorwoodRanger());        //tested
+        for (int i=0;i<5; i++) deck.add(new BronzeSable());          //tested
+        //for (int i=0;i<2; i++) deck.add(new Afflict());              //tested
+        //for (int i=0;i<2; i++) deck.add(new AggressiveUrge());       //tested
+        //for (int i=0;i<2; i++) deck.add(new BenevolentAncestor());   //tested
         //for (int i=0;i<2; i++) deck.add(new BoilingEarth());
         //for (int i=0;i<2; i++) deck.add(new Darkness());
         //for (int i=0;i<4; i++) deck.add(new DayOfJudgement());
@@ -34,7 +34,7 @@ public class CardGame {
         //for (int i=0;i<2; i++) deck.add(new FalsePeace());
         //for (int i=0;i<2; i++) deck.add(new Fatigue());
         //for (int i=0;i<2; i++) deck.add(new SavorTheMoment());
-        //for (int i=0;i<2; i++) deck.add(new VolcanicHammer());
+        //for (int i=0;i<2; i++) deck.add(new VolcanicHammer());       //tested
         //for (int i=0;i<2; i++) deck.add(new WorldAtWar());
 
 

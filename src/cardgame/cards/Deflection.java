@@ -30,7 +30,7 @@ public class Deflection implements Card {
             Scanner in = new Scanner(System.in);
             index = in.nextInt();
             target = CardGame.instance.get_stack().get(index);
-            target.setTarget(); //<-- forse va nella resolve
+            target.setTarget(); //  <-- forse va nella resolve
         }
 
 

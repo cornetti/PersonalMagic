@@ -2,9 +2,7 @@ package cardgame.cards;
 
 import cardgame.*;
 
-/**
- * Created by Kotono on 16/03/2016.
- */
+
 public class FalsePeace implements Card {
 
     private class FalsePeaceEffect extends AbstractCardEffect {

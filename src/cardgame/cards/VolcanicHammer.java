@@ -19,6 +19,8 @@ public class VolcanicHammer implements Card {
 
         @Override
         public void setTarget() {
+            target = null;
+            target2 = null;
             System.out.println("possibili target in campo:");
             int index = 0;
             for (Creature c: opponent.get_creatures()){

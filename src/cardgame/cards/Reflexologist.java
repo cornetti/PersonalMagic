@@ -32,15 +32,14 @@ public class Reflexologist implements Card{
             power = 0;
             toughness = 1;
             all_effects.add( new Effect() {
-                                    public boolean play() {
-                                        CardGame.instance.get_stack().add(this);
-                                        return tap(); 
-                                    }
-                                    public void resolve() {}
-                                    public String toString() 
-                                        { return "tap: Reflexology does nothing"; }
-                                }
-                ); 
+                public boolean play() {
+                    CardGame.instance.get_stack().add(this);
+                    return tap();
+                }
+                public void resolve() {}
+                public void setTarget() {}
+                public String toString() { return "tap: Reflexology does nothing"; }
+            });
         }
 
         @Override

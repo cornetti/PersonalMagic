@@ -8,5 +8,6 @@ public interface Effect {
     // resolves the effect
     void resolve();
 
-
+    //selects target of effect if possible
+    void setTarget();
 }

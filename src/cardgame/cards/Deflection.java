@@ -5,16 +5,11 @@ import cardgame.*;
 import java.util.Scanner;
 
 
-/**
- * Created by Kotono on 16/03/2016.
- */
 public class Deflection implements Card {
 
     private class DeflectionEffect extends AbstractCardEffect {
 
-        AbstractCardEffect target;
-        AbstractCardEffect target_of_target;
-        public boolean played = false;
+        Effect target;
 
         public DeflectionEffect(Player p, Card c){
             super(p,c);
@@ -34,9 +29,8 @@ public class Deflection implements Card {
             System.out.println("inserire l'indice del target");
             Scanner in = new Scanner(System.in);
             index = in.nextInt();
-            target = (AbstractCardEffect) CardGame.instance.get_stack().get(index);
-            target_of_target = target.getTarget();
-            target_of_target.setTarget();
+            target = CardGame.instance.get_stack().get(index);
+            target.setTarget(); //<-- forse va nella resolve
         }
 
 
@@ -48,7 +42,7 @@ public class Deflection implements Card {
 
         @Override
         public void resolve() {
-        //    if (target.getPlayed()) {}
+
         }
     }
 

@@ -45,15 +45,13 @@ public class NorwoodRanger implements Card {
             power = 1;
             toughness = 2;
             all_effects.add( new Effect() {
-                                 public boolean play() {
-                                     CardGame.instance.get_stack().add(this); //idem del leoncino2
-                                     return tap();
-                                 }
-
-                                 public void resolve() {}
-
-                                 public String toString()
-                                 { return "Norwood Ranger"; }
+                public boolean play() {
+                    CardGame.instance.get_stack().add(this);
+                    return tap();
+                }
+                public void resolve() {}
+                public void setTarget() {}
+                public String toString() { return "Nordwood Ranger"; }
                              }
             );
         }

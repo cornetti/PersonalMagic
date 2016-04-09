@@ -31,13 +31,7 @@ public class SavorTheMoment implements Card {
                 @Override
                 public void execute() {
                     System.out.println("taking the extra turn");
-                    Player[] Players = new Player[2];
-                    Players[0] = CardGame.get_current_player();
-                    Players[1] = CardGame.get_current_adversary();
-                    DefaultTurnManager tm = new DefaultTurnManager(Players);
-                    CardGame.set_turn_manager(tm);
-                    // Trigger nella end phase per fare remove_turn_manager();
-                    owner.set_phase(Phases.NULL, new SkipPhase(Phases.UNTAP));
+
 
                 }
             });

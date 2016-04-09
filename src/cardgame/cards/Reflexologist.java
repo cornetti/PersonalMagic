@@ -11,7 +11,7 @@ public class Reflexologist implements Card{
         public ReflexologistEffect(Player p, Card c) { super(p,c); }
 
         @Override
-        public void setTarget() {}
+        public boolean setTarget() {return false;}
 
         @Override
         public boolean hasTarget() {
@@ -37,7 +37,7 @@ public class Reflexologist implements Card{
                     return tap();
                 }
                 public void resolve() {}
-                public void setTarget() {}
+                public boolean setTarget() {return false;}
                 public String toString() { return "tap: Reflexology does nothing"; }
             });
         }

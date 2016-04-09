@@ -20,19 +20,22 @@ public class AggressiveUrge implements Card {
 
 
         @Override
-        public void setTarget(){
+        public boolean setTarget(){
             System.out.println("possibili target in campo:");
             int index = 0;
-            for (Creature c: CardGame.instance.get_current_player().get_creatures()){
-                System.out.println(index +".  "+ c.name() + ": " + c.get_power() + "/" + c.get_toughness());
-                ++index;
+            for (Creature c: opponent.get_creatures()){
+                System.out.println(++index +".  "+ c.name() + ": " + c.get_power() + "/" + c.get_toughness());
             }
 
-            System.out.println("inserire l'indice del target");
+            System.out.println("insert index of target or 0 for abort");
             Scanner scanner = new Scanner(System.in);
-            index = scanner.nextInt();
-
-            target = (CardGame.instance.get_current_player().get_creatures().get(index));
+            index = scanner.nextInt()-1;
+            if (index>0){
+                target = (opponent.get_creatures().get(index));
+                return true;
+            }
+            System.out.println("aborted");
+            return false;
         }
 
         @Override

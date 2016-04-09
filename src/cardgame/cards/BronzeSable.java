@@ -16,8 +16,8 @@ public class BronzeSable implements Card {
         }
 
         @Override
-        public void setTarget() {
-
+        public boolean setTarget() {
+            return false;
         }
 
         @Override
@@ -50,7 +50,7 @@ public class BronzeSable implements Card {
                     return tap();
                 }
                 public void resolve() {}
-                public void setTarget() {}
+                public boolean setTarget() {return false; }
                 public String toString() {
                     return "Bronze Sable";
                 }

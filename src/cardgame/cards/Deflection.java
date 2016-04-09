@@ -18,19 +18,25 @@ public class Deflection implements Card {
 
 
         @Override
-        public void setTarget(){
+        public boolean setTarget(){
             int index = 0;
             System.out.println("Possibili effetti target nello stack");
             for (Effect e : CardGame.instance.get_stack()){
+                index++;
                 if (e instanceof AbstractCardEffect && ((AbstractCardEffect) e).hasTarget())
                     System.out.println(index+ ". " + e.toString());
-                index++;
             }
             System.out.println("inserire l'indice del target");
             Scanner in = new Scanner(System.in);
-            index = in.nextInt();
-            target = CardGame.instance.get_stack().get(index);
-            target.setTarget(); //  <-- forse va nella resolve
+            index = in.nextInt()-1;
+            if (index>0){
+                target = CardGame.instance.get_stack().get(index);
+                return true;
+            }
+            else{
+                System.out.println("aborted");
+                return false;
+            }
         }
 
 
@@ -42,7 +48,7 @@ public class Deflection implements Card {
 
         @Override
         public void resolve() {
-
+            target.setTarget();
         }
     }
 

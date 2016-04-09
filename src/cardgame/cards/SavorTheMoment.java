@@ -18,28 +18,30 @@ public class SavorTheMoment implements Card {
         }
 
         @Override
-        public void setTarget() {
-        }
+        public boolean setTarget() {return false; }
 
         @Override
         public boolean hasTarget() {
             return false;
         }
 
-
+        @Override
         public void resolve() {
-            //TODO vedere se va bene
             CardGame.instance.get_triggers().register(16, new TriggerAction() {
-
+                @Override
                 public void execute() {
+                    System.out.println("taking the extra turn");
                     Player[] Players = new Player[2];
                     Players[0] = CardGame.get_current_player();
                     Players[1] = CardGame.get_current_adversary();
                     DefaultTurnManager tm = new DefaultTurnManager(Players);
                     CardGame.set_turn_manager(tm);
                     // Trigger nella end phase per fare remove_turn_manager();
+                    owner.set_phase(Phases.NULL, new SkipPhase(Phases.UNTAP));
+
                 }
             });
+            System.out.println(owner.get_name() + " will take an extra turn but he won't untap his creatures");
         }
     }
 

@@ -20,7 +20,7 @@ public class CardGame {
         //create decks
         ArrayList<Card> deck = new ArrayList<Card>();
         //for (int i=0; i<2; i++) deck.add(new Homeopathy());          //tested
-        //for (int i=0; i!=5; ++i) deck.add(new Reflexologist());      //tested
+        for (int i=0; i!=5; ++i) deck.add(new Reflexologist());      //tested
         //for (int i=0;i<2; i++) deck.add(new Cancel());               //tested
         for (int i=0;i<5; i++) deck.add(new NorwoodRanger());        //tested
         for (int i=0;i<5; i++) deck.add(new BronzeSable());          //tested
@@ -28,7 +28,7 @@ public class CardGame {
         //for (int i=0;i<2; i++) deck.add(new AggressiveUrge());       //tested
         //for (int i=0;i<2; i++) deck.add(new BenevolentAncestor());   //tested
         for (int i=0;i<2; i++) deck.add(new BoilingEarth());
-        for (int i=0;i<2; i++) deck.add(new Darkness());             //tested
+        //for (int i=0;i<2; i++) deck.add(new Darkness());             //tested
         //for (int i=0;i<4; i++) deck.add(new DayOfJudgement());
         //for (int i=0;i<2; i++) deck.add(new Deflection());
         //for (int i=0;i<2; i++) deck.add(new FalsePeace());

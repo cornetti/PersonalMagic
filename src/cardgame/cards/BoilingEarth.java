@@ -2,9 +2,7 @@ package cardgame.cards;
 
 import cardgame.*;
 
-/**
- * Created by Kotono on 16/03/2016.
- */
+
 public class BoilingEarth implements Card {
 
     private class BoilingEarthEffect extends AbstractCardEffect {
@@ -25,7 +23,7 @@ public class BoilingEarth implements Card {
         @Override
         public void resolve() {
             for (Creature c: opponent.get_creatures()) {
-                c.inflict_damage(1);
+                c.inflict_damage(1); //ConcurrentModificationException se faccio danno a una creatura con 1 di toughness
             }
         }
     }

@@ -22,7 +22,7 @@ public class CardGame {
         //for (int i=0; i<2; i++) deck.add(new Homeopathy());          //tested
         for (int i=0; i!=5; ++i) deck.add(new Reflexologist());      //tested
         //for (int i=0;i<2; i++) deck.add(new Cancel());               //tested
-        for (int i=0;i<5; i++) deck.add(new NorwoodRanger());        //tested
+        //for (int i=0;i<5; i++) deck.add(new NorwoodRanger());        //tested
         for (int i=0;i<5; i++) deck.add(new BronzeSable());          //tested
         //for (int i=0;i<2; i++) deck.add(new Afflict());              //tested
         //for (int i=0;i<2; i++) deck.add(new AggressiveUrge());       //tested

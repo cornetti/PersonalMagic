@@ -2,7 +2,10 @@ package cardgame.cards;
 
 import cardgame.*;
 
+import java.util.Iterator;
+import java.util.List;
 
+//tested
 public class BoilingEarth implements Card {
 
     private class BoilingEarthEffect extends AbstractCardEffect {
@@ -10,6 +13,7 @@ public class BoilingEarth implements Card {
             super(p,c);
         }
 
+        public List<Creature> target = opponent.get_creatures();
 
         @Override
         public void setTarget() {
@@ -22,9 +26,23 @@ public class BoilingEarth implements Card {
 
         @Override
         public void resolve() {
-            for (Creature c: opponent.get_creatures()) {
-                c.inflict_damage(1); //ConcurrentModificationException se faccio danno a una creatura con 1 di toughness
+            /**
+             * metodo orribile per indebolire le creature e
+             * che le elimina personalmente se rimangono con toughness = 0
+             **/
+            Iterator it = target.iterator();
+            while (it.hasNext()) {
+                Creature c = (Creature)it.next();
+                if (c.get_toughness() > 1) {
+                    System.out.println(c.name() + "taken 1 damage from boiling earth");
+                    c.inflict_damage(1);
+                }
+                else {
+                    System.out.println(c.name() + " has been destroyed by boiling earth");
+                    it.remove();
+                }
             }
+            //System.out.println("inflicted 1 damage to all creatures");
         }
     }
 

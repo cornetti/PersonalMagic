@@ -25,10 +25,8 @@ public abstract class AbstractCardEffect extends AbstractEffect {
     public boolean play() {
         owner.get_hand().remove(card);
         played = true;
-        if (setTarget())
-           return super.play();
-        else
-            return false;
+        setTarget();
+        return super.play();
     }
 
     public boolean getPlayed() {
@@ -39,7 +37,7 @@ public abstract class AbstractCardEffect extends AbstractEffect {
         return target;
     }
 
-    public abstract boolean setTarget();
+    public abstract void setTarget();
 
     public String toString() { return card.toString(); }
 

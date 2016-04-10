@@ -11,8 +11,6 @@ public abstract class AbstractCreature implements Creature {
     protected int damage_left = get_toughness();
     protected int power;
     protected int toughness;
-    protected boolean isAttacking = false;
-
 
     protected AbstractCreature(Player owner) { this.owner=owner; }
 
@@ -45,17 +43,10 @@ public abstract class AbstractCreature implements Creature {
     public void attack() {
         Attack atk = new Attack(this, CardGame.instance.get_current_adversary());
         AttackList.add(atk);
-        isAttacking = true;
+        //TODO finita?
+
+        // Daffinireddopo
     } // to do in assignment 2
-
-    public void setIsAttacking (boolean value) {
-        isAttacking = value;
-    }
-
-    public boolean getIsAttacking () {
-        return isAttacking;
-    }
-
 
     public void defend(Creature c) {
         ArrayList<Attack> lst = AttackList.attacks;

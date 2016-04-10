@@ -8,8 +8,6 @@ public interface Creature {
     boolean tap();
     boolean untap();
     boolean isTapped();
-    void setAttacking(boolean value);
-    boolean getIsAttacking();
     void attack();
     void defend(Creature c);
     int getDamage_left();

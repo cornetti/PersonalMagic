@@ -23,10 +23,28 @@ public class WorldAtWar implements Card {
         @Override
         public void resolve() {
             //TODO non va un cazzo bene
-            owner.set_phase(Phases.UNTAP, new DefaultUntapPhase());
-            owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
+
+            //dopo main
+            CardGame.instance.get_triggers().register(8, new TriggerAction() {
+
+
+                        @Override
+                        public void execute() {
+                            for(Creature c : owner.get_creatures()) {
+                                if(c.getIsAttacking()==true) c.tap();
+                            }
+                            for(Creature c : opponent.get_creatures()) {
+                                if(c.getIsAttacking()==true) c.tap();
+                            }
+                            owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
+                            owner.set_phase(Phases.MAIN, new DefaultMainPhase());
+                        }
+
+                        }
+            }
+            );
         }
-    }
+
 
     @Override
     public Effect get_effect(Player owner) {

@@ -28,7 +28,7 @@ public class SavorTheMoment implements Card {
 
         @Override
         public void resolve() {
-            //TODO vedere se va bene
+            //not working
             owner.set_phase(Phases.DRAW, new DefaultDrawPhase());
             owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
             owner.set_phase(Phases.MAIN, new DefaultMainPhase());

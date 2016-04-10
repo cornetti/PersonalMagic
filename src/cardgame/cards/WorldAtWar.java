@@ -23,7 +23,7 @@ public class WorldAtWar implements Card {
 
         @Override
         public void resolve() {
-            //testing
+            //not working
             CardGame.instance.get_triggers().register(4, new TriggerAction() {
 
                 @Override

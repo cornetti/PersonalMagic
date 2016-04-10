@@ -22,7 +22,7 @@ public class WorldAtWar implements Card {
         }
 
         @Override
-        public void resolve() {
+        public void resolve() {/*
             //not working
             CardGame.instance.get_triggers().register(4, new TriggerAction() {
 
@@ -38,7 +38,7 @@ public class WorldAtWar implements Card {
                 owner.set_phase(Phases.MAIN, new DefaultMainPhase());
                 }
 
-            });
+            });*/
         }
     }
 

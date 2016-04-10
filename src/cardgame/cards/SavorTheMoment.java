@@ -27,7 +27,7 @@ public class SavorTheMoment implements Card {
         }
 
         @Override
-        public void resolve() {
+        public void resolve() {/*
             Player players[] = new Player[2];
             //not working
             players[0] = CardGame.instance.get_current_player();
@@ -42,6 +42,7 @@ public class SavorTheMoment implements Card {
                                     });
             // Trigger nella end phase per fare remove_turn_manager();
             owner.set_phase(Phases.NULL, new SkipPhase(Phases.UNTAP));
+            */
         }
     }
 

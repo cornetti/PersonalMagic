@@ -8,12 +8,14 @@ import cardgame.*;
 public class WorldAtWar implements Card {
 
     private class WorldAtWarEffect extends AbstractCardEffect {
-        public WorldAtWarEffect(Player p, Card c){
-            super(p,c);
+        public WorldAtWarEffect(Player p, Card c) {
+            super(p, c);
         }
 
         @Override
-        public boolean setTarget() {return false; }
+        public boolean setTarget() {
+            return false;
+        }
 
         @Override
         public boolean hasTarget() {
@@ -28,22 +30,23 @@ public class WorldAtWar implements Card {
             CardGame.instance.get_triggers().register(8, new TriggerAction() {
 
 
-                        @Override
-                        public void execute() {
-                            for(Creature c : owner.get_creatures()) {
-                                if(c.getIsAttacking()==true) c.tap();
-                            }
-                            for(Creature c : opponent.get_creatures()) {
-                                if(c.getIsAttacking()==true) c.tap();
-                            }
-                            owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
-                            owner.set_phase(Phases.MAIN, new DefaultMainPhase());
-                        }
+                @Override
+                public void execute() {
+                    for (Creature c : owner.get_creatures()) {
+                        if (c.getIsAttacking() == true) c.tap();
+                    }
+                    for (Creature c : opponent.get_creatures()) {
+                        if (c.getIsAttacking() == true) c.tap();
+                    }
+                    owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
+                    owner.set_phase(Phases.MAIN, new DefaultMainPhase());
+                }
 
-                        }
-            }
-            );
+            });
+
+
         }
+    }
 
 
     @Override

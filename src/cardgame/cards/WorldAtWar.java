@@ -33,15 +33,19 @@ public class WorldAtWar implements Card {
 
                 @Override
                 public void execute() {
-                    if(parte == false){
-                        for(Attack atk: AttackList.attacks)
+                    if(parte == false) {
+                        for (Attack atk : AttackList.attacks)
                             toUntap.add(atk.getAttacker());
-                    TurnManager tm = CardGame.instance.get_turn_manager();
+                        PhaseManager pm = owner.get_phase_manager();
+                        pm.prevPhase();
+                        pm.prevPhase();
+                        parte = true;
+                        CardGame.instance.get_triggers().register(4, this);
+                    }else{
+                        for(Creature c: toUntap)
+                            c.untap();
+                    }
 
-
-
-                owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
-                owner.set_phase(Phases.MAIN, new DefaultMainPhase());
                 }
 
             });

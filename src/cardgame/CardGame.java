@@ -85,7 +85,6 @@ public class CardGame {
     private final Deque<TurnManager>  turn_manager_stack = new ArrayDeque<TurnManager>();
     public void set_turn_manager(TurnManager m) { turn_manager_stack.push(m); }
     public void remove_turn_manager(TurnManager m) { turn_manager_stack.remove(m); }
-    public TurnManager get_turn_manager(){ return turn_manager_stack.peek();}
 
     Player get_player(int i) { return Players[i]; }
     public Player get_current_player() { return turn_manager_stack.peek().get_current_player(); }

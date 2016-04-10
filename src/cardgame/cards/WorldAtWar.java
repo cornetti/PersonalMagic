@@ -8,8 +8,8 @@ import cardgame.*;
 public class WorldAtWar implements Card {
 
     private class WorldAtWarEffect extends AbstractCardEffect {
-        public WorldAtWarEffect(Player p, Card c){
-            super(p,c);
+        public WorldAtWarEffect(Player p, Card c) {
+            super(p, c);
         }
 
         @Override
@@ -23,11 +23,25 @@ public class WorldAtWar implements Card {
 
         @Override
         public void resolve() {
-            //TODO vedere se va bene
-            owner.set_phase(Phases.UNTAP, new DefaultUntapPhase());
-            owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
+            //testing
+            CardGame.instance.get_triggers().register(4, new TriggerAction() {
+
+                @Override
+                public void execute() {
+                    for (Creature c : owner.get_creatures()) {
+                        if (c.getIsAttacking() == true) c.tap();
+                    }
+                    for (Creature c : opponent.get_creatures()) {
+                        if (c.getIsAttacking() == true) c.tap();
+                    }
+                    DefaultCombatPhase cf = new DefaultCombatPhase();
+                    DefaultMainPhase mf = new DefaultMainPhase();
+                }
+
+            });
         }
     }
+
 
     @Override
     public Effect get_effect(Player owner) {
@@ -56,3 +70,4 @@ public class WorldAtWar implements Card {
 
     public String toString() { return name() + "[" + rule_text() +"]";}
 }
+

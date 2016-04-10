@@ -27,4 +27,6 @@ public interface Creature {
     void receive(Attack dmg);
 
     boolean hasEffect();
+
+    boolean getIsAttacking();
 }

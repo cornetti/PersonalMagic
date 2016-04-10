@@ -28,14 +28,14 @@ public class CardGame {
         //for (int i=0;i<2; i++) deck.add(new AggressiveUrge());       //tested
         //for (int i=0;i<2; i++) deck.add(new BenevolentAncestor());   //tested
         //for (int i=0;i<2; i++) deck.add(new BoilingEarth());         //tested
-        //for (int i=0;i<2; i++) deck.add(new Darkness());             //tested
+        for (int i=0;i<2; i++) deck.add(new Darkness());             //tested
         //for (int i=0;i<4; i++) deck.add(new DayOfJudgement());       //tested
         //for (int i=0;i<5; i++) deck.add(new Deflection());           //tested
         //for (int i=0;i<2; i++) deck.add(new FalsePeace());           //tested
         //for (int i=0;i<2; i++) deck.add(new Fatigue());              //tested
-        for (int i=0;i<2; i++) deck.add(new SavorTheMoment());
+        //for (int i=0;i<2; i++) deck.add(new SavorTheMoment());
         //for (int i=0;i<5; i++) deck.add(new VolcanicHammer());       //tested
-        //for (int i=0;i<2; i++) deck.add(new WorldAtWar());
+        for (int i=0;i<2; i++) deck.add(new WorldAtWar());
 
 
         Collections.shuffle(deck);

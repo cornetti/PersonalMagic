@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Cancel implements Card {
 
     private class CancelEffect extends AbstractCardEffect{
-        Effect target;
+        int target;
 
         public CancelEffect(Player p, Card c){
             super(p,c);
@@ -26,7 +26,7 @@ public class Cancel implements Card {
             System.out.println("inserire l'indice del target");
             Scanner in = new Scanner(System.in);
             index = in.nextInt();
-            target = CardGame.instance.get_stack().get(index);
+            target = index;
 
         }
 
@@ -37,27 +37,8 @@ public class Cancel implements Card {
 
         @Override
         public void resolve() {
-            System.out.println("Cancel risoluzione");
-            target = new AbstractCardEffect(owner,card) {
-                @Override
-                public boolean play() {
-                    return super.play();
-                }
-
-                @Override
-                public void setTarget() {
-                }
-
-                @Override
-                public boolean hasTarget() {
-                    return false;
-                }
-
-                @Override
-                public void resolve() {
-                }
-
-            };
+            if (CardGame.instance.get_stack().remove(target)) System.out.println("removed target effect");
+            else System.out.println("failed remove");
         }
     }
 

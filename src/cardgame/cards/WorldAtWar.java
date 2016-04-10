@@ -14,7 +14,8 @@ public class WorldAtWar implements Card {
             super(p, c);
         }
         private ArrayList<Creature> toUntap = new ArrayList<Creature>();
-        private boolean parte = false;
+        private int parte = 0;
+        private PhaseManager pm;
 
         @Override
         public void setTarget() {
@@ -33,19 +34,25 @@ public class WorldAtWar implements Card {
 
                 @Override
                 public void execute() {
-                    if(parte == false) {
+                    if(parte == 0) {
                         for (Attack atk : AttackList.attacks)
                             toUntap.add(atk.getAttacker());
-                        PhaseManager pm = owner.get_phase_manager();
+                        pm = owner.get_phase_manager();
                         pm.prevPhase();
-                        pm.prevPhase();
-                        parte = true;
+                        parte = 1;
+                        CardGame.instance.get_triggers().register(8, this);
+                    }else if(parte == 1){
+                        owner.set_phase_manager(pm);
+                        parte = 2;
                         CardGame.instance.get_triggers().register(4, this);
-                    }else{
-                        for(Creature c: toUntap)
+                    }else if(parte == 2){
+                        for (Creature c : toUntap)
                             c.untap();
+                        parte = 3;
+                        CardGame.instance.get_triggers().register(8 ,this);
+                    }else{
+                        owner.remove_phase_manager(pm);
                     }
-
                 }
 
             });

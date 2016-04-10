@@ -26,7 +26,7 @@ public class CardStack implements Iterable<Effect> {
     public Effect get(int index){
         Iterator<Effect> it = iterator();
         Effect e = null;
-        for (int i = 0; i<index+1; i++){
+        for (int i = 0; i<index; i++){
             if (it.hasNext()){
                 e = it.next();
             }else

@@ -46,31 +46,6 @@ public class Attack {
         cancelled = true;
     }
 
-    /* Metodo bellissimo che però non ci serve più :'(
-
-    // Restituisce il prossimo defender da attaccare.
-    //Dovevamo usarlo per fare in modo che il prossimo difensore difendesse l'attacco che avanzava :'(
-    public Creature getNextDefender(){
-        if(!defenders.isEmpty())
-            return defenders.get(0);
-        else { // Se i defender di questo attaccante sono finiti allora si restituisce
-               //  il prossimo defender del prossimo attacker.
-            ArrayList<Attack> lst = AttackList.attacks;
-            int index = lst.indexOf(this); // index del attack in qui mi trovo
-            while (index < lst.size()) // finché ci sono attack (attacchi dichiarati)
-                // se nel prossimo attack non ci sono defender cerco in quello successivo
-                if (lst.get(index + 1).defenders.isEmpty())
-                    index++;
-                else {
-                    // altrimenti prendo il primo defender del prossimo attack
-                    defenders = lst.get(index + 1).defenders;
-                    return defenders.get(0);
-                }
-        }
-        return null;
-    } */
-
-
 
     public void resolve(){
         if (!isCancelled()) {

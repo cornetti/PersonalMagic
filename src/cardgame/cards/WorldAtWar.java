@@ -2,6 +2,8 @@ package cardgame.cards;
 
 import cardgame.*;
 
+import java.util.ArrayList;
+
 /**
  * Created by Kotono on 16/03/2016.
  */
@@ -11,6 +13,8 @@ public class WorldAtWar implements Card {
         public WorldAtWarEffect(Player p, Card c) {
             super(p, c);
         }
+        private ArrayList<Creature> toUntap = new ArrayList<Creature>();
+        private boolean parte = false;
 
         @Override
         public void setTarget() {
@@ -22,23 +26,25 @@ public class WorldAtWar implements Card {
         }
 
         @Override
-        public void resolve() {/*
+        public void resolve() {
             //not working
+
             CardGame.instance.get_triggers().register(4, new TriggerAction() {
 
                 @Override
                 public void execute() {
-                    for (Creature c : owner.get_creatures()) {
-                        if (c.getIsAttacking() == true) c.tap();
-                    }
-                    for (Creature c : opponent.get_creatures()) {
-                        if (c.getIsAttacking() == true) c.tap();
-                    }
+                    if(parte == false){
+                        for(Attack atk: AttackList.attacks)
+                            toUntap.add(atk.getAttacker());
+                    TurnManager tm = CardGame.instance.get_turn_manager();
+
+
+
                 owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
                 owner.set_phase(Phases.MAIN, new DefaultMainPhase());
                 }
 
-            });*/
+            });
         }
     }
 

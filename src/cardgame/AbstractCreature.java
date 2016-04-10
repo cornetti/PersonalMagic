@@ -11,7 +11,7 @@ public abstract class AbstractCreature implements Creature {
     protected int damage_left = get_toughness();
     protected int power;
     protected int toughness;
-    private boolean hasAttacked;
+    private boolean hasAttacked = false;
 
     protected AbstractCreature(Player owner) { this.owner=owner; }
 

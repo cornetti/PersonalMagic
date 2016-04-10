@@ -89,7 +89,12 @@ public class Player {
             cur_phase.execute();
         }
     }
+    
+    
 
+
+    
+    
 
     // phase management
     

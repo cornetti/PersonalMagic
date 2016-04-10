@@ -16,7 +16,7 @@ public class NorwoodRanger implements Card {
         }
 
         @Override
-        public boolean setTarget() {return false;
+        public void setTarget() {
         }
 
         @Override
@@ -50,7 +50,7 @@ public class NorwoodRanger implements Card {
                     return tap();
                 }
                 public void resolve() {}
-                public boolean setTarget() {return false;}
+                public void setTarget() {}
                 public String toString() { return "Nordwood Ranger"; }
                              }
             );

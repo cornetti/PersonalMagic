@@ -9,5 +9,5 @@ public interface Effect {
     void resolve();
 
     //selects target of effect if possible
-    boolean setTarget();
+    void setTarget();
 }

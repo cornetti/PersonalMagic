@@ -16,7 +16,8 @@ public class BoilingEarth implements Card {
         public List<Creature> target = opponent.get_creatures();
 
         @Override
-        public boolean setTarget() {return false;}
+        public void setTarget() {
+        }
 
         @Override
         public boolean hasTarget() {

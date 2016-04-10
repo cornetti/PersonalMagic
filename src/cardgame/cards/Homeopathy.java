@@ -12,7 +12,7 @@ public class Homeopathy implements Card{
         public HomeopathyEffect(Player p, Card c) { super(p,c); }
 
         @Override
-        public boolean setTarget() {return false;
+        public void setTarget() {
         }
 
         @Override

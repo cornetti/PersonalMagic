@@ -20,23 +20,19 @@ public class Afflict implements Card {
 
 
         @Override
-        public boolean setTarget(){
+        public void setTarget(){
             System.out.println("possibili target in campo:");
             int index = 0;
             for (Creature c: opponent.get_creatures()){
-                System.out.println(++index +".  "+ c.name() + ": " + c.get_power() + "/" + c.get_toughness());
+                System.out.println(index +".  "+ c.name() + ": " + c.get_power() + "/" + c.get_toughness());
+                ++index;
             }
 
-            System.out.println("insert index of target or 0 for abort");
+            System.out.println("inserire l'indice del target");
             Scanner scanner = new Scanner(System.in);
-            index = scanner.nextInt()-1;
-            if (index>0){
-                target = (opponent.get_creatures().get(index));
-                return true;
-            }
-            System.out.println("aborted");
-            return false;
+            index = scanner.nextInt();
 
+            target = (opponent.get_creatures().get(index));
         }
 
         @Override

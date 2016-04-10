@@ -12,7 +12,8 @@ public class Darkness implements Card {
 
 
         @Override
-        public boolean setTarget() {return false; }
+        public void setTarget() {
+        }
 
         @Override
         public boolean hasTarget() {

@@ -16,22 +16,18 @@ public class Cancel implements Card {
         }
 
         @Override
-        public boolean setTarget() {
+        public void setTarget() {
             int index = 0;
             System.out.println("Possibili effetti target nello stack");
             for (Effect e : CardGame.instance.get_stack()){
-                index++;
                 System.out.println(index+ ". " + e.toString());
+                index++;
             }
             System.out.println("inserire l'indice del target");
             Scanner in = new Scanner(System.in);
-            index = in.nextInt()-1;
-            if (index>0){
-                target = CardGame.instance.get_stack().get(index);
-                return true;
-            }
-            System.out.println("aborted");
-            return false;
+            index = in.nextInt();
+            target = CardGame.instance.get_stack().get(index);
+
         }
 
         @Override
@@ -48,8 +44,7 @@ public class Cancel implements Card {
                 }
 
                 @Override
-                public boolean setTarget() {
-                    return false;
+                public void setTarget() {
                 }
 
                 @Override

@@ -34,8 +34,8 @@ public class WorldAtWar implements Card {
                     for (Creature c : opponent.get_creatures()) {
                         if (c.getIsAttacking() == true) c.tap();
                     }
-                    DefaultCombatPhase cf = new DefaultCombatPhase();
-                    DefaultMainPhase mf = new DefaultMainPhase();
+                owner.set_phase(Phases.COMBAT, new DefaultCombatPhase());
+                owner.set_phase(Phases.MAIN, new DefaultMainPhase());
                 }
 
             });

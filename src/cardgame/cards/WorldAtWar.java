@@ -29,28 +29,27 @@ public class WorldAtWar implements Card {
         @Override
         public void resolve() {
             //not working
+            for (Creature c: AttackList.lastAttack)
+                if(owner.get_creatures().contains(c))
+                    c.untap();
+            pm = owner.get_phase_manager();
+            pm.prevPhase();
+            pm.prevPhase();
+            parte = 1;
+            owner.set_phase_manager(pm);
 
             CardGame.instance.get_triggers().register(4, new TriggerAction() {
 
                 @Override
                 public void execute() {
-                    if(parte == 0) {
-                        for (Attack atk : AttackList.attacks)
-                            toUntap.add(atk.getAttacker());
-                        pm = owner.get_phase_manager();
-                        pm.prevPhase();
-                        parte = 1;
-                        CardGame.instance.get_triggers().register(8, this);
-                    }else if(parte == 1){
-                        owner.set_phase_manager(pm);
+
+                    if(parte == 1){
                         parte = 2;
-                        CardGame.instance.get_triggers().register(4, this);
+                        CardGame.instance.get_triggers().register(8, this);
                     }else if(parte == 2){
-                        for (Creature c : toUntap)
-                            c.untap();
+                        /*for (Creature c : toUntap)
+                            c.untap();*/
                         parte = 3;
-                        CardGame.instance.get_triggers().register(8 ,this);
-                    }else{
                         owner.remove_phase_manager(pm);
                     }
                 }

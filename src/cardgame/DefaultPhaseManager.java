@@ -13,7 +13,7 @@ public class DefaultPhaseManager implements PhaseManager{
     
     public Phases current_phase() { return current_phase_idx; }
 
-    public void prevPhase(){current_phase_idx.prev();}
+    public void prevPhase(){current_phase_idx = current_phase_idx.prev();}
     
     public Phases next_phase() { 
         current_phase_idx = current_phase_idx.next();

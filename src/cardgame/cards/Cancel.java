@@ -37,6 +37,7 @@ public class Cancel implements Card {
 
         @Override
         public void resolve() {
+            System.out.println("Cancel risoluzione");
             target = new AbstractCardEffect(owner,card) {
                 @Override
                 public boolean play() {
@@ -54,7 +55,6 @@ public class Cancel implements Card {
 
                 @Override
                 public void resolve() {
-
                 }
 
             };

@@ -31,6 +31,7 @@ public class WorldAtWar implements Card {
             for (Creature c: AttackList.lastAttack)
                 if(owner.get_creatures().contains(c))
                     c.untap();
+            System.out.println("WAW resolveeeeh");
             pm = owner.get_phase_manager();
             pm.prevPhase();
             pm.prevPhase();

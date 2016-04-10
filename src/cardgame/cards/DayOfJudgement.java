@@ -24,7 +24,7 @@ public class DayOfJudgement implements Card {
 
         @Override
         public void resolve() {
-            opponent.get_creatures().clear(); //svuota tutto unieuro
+            opponent.get_creatures().clear();
             owner.get_creatures().clear();
             System.out.println("all creature destroyed");
         }

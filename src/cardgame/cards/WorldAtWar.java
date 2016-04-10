@@ -28,7 +28,6 @@ public class WorldAtWar implements Card {
 
         @Override
         public void resolve() {
-            //not working
             for (Creature c: AttackList.lastAttack)
                 if(owner.get_creatures().contains(c))
                     c.untap();

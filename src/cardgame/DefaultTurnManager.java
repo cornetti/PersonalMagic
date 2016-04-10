@@ -13,6 +13,8 @@ public class DefaultTurnManager implements TurnManager {
 
     public Player get_current_adversary() { return Players[(current_player_idx+1)%2]; }
 
+    public void repeatTurn(){current_player_idx = (current_player_idx+1)%2;}
+
     
     public Player next_player() { 
         current_player_idx = (current_player_idx+1)%2;

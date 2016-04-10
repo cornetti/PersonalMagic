@@ -11,6 +11,8 @@ public class SavorTheMoment implements Card {
         public SavorTheMomentEffect(Player p, Card c){
             super(p,c);
         }
+        TurnManager tm;
+        private boolean part = true;
 
         @Override
         public boolean play() {
@@ -27,22 +29,24 @@ public class SavorTheMoment implements Card {
         }
 
         @Override
-        public void resolve() {/*
-            Player players[] = new Player[2];
-            //not working
-            players[0] = CardGame.instance.get_current_player();
-                                players[1] = CardGame.instance.get_current_adversary();
-                                final DefaultTurnManager tm = new DefaultTurnManager(players);
-                                CardGame.instance.set_turn_manager(tm);
-                                CardGame.instance.get_triggers().register(16, new TriggerAction() {
-                                        @Override
-                                        public void execute() {
-                                                CardGame.instance.remove_turn_manager(tm);
-                                            }
-                                    });
-            // Trigger nella end phase per fare remove_turn_manager();
-            owner.set_phase(Phases.NULL, new SkipPhase(Phases.UNTAP));
-            */
+        public void resolve() {
+            tm = CardGame.instance.get_turn_manager();
+            CardGame.instance.get_triggers().register(16, new TriggerAction() {
+                @Override
+                public void execute() {
+                    if (part == true){
+                        tm.repeatTurn();
+                        CardGame.instance.set_turn_manager(tm);
+                        part = false;
+                        owner.set_phase(Phases.UNTAP,new SkipPhase(Phases.UNTAP));
+                        CardGame.instance.get_triggers().register(16, this);
+                    }else{
+                        CardGame.instance.remove_turn_manager(tm);
+                    }
+
+                }
+            });
+
         }
     }
 
